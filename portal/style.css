@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #0b0f2a, #000);
+  color: white;
+  font-family: Arial;
+}
+
+.wrap {
+  text-align: center;
+}
+
+h1 {
+  letter-spacing: 4px;
+  font-size: 42px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #4f7cff;
+  color: white;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #2f5fff;
+}
