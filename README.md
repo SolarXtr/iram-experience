@@ -1,34 +1,3 @@
-
-
-<div align="center">
-# 🌌 Welcome to the Universe of iRAM
-# iRAM Experience
-
-### **Research Intelligence Platform**
-
-*Where Research Meets Intelligence.*
-
-![Mission](https://img.shields.io/badge/Mission-Open%20the%20Gate-8A2BE2)
-
-![Status](https://img.shields.io/badge/Status-Genesis-0ea5e9)
-
-![Version](https://img.shields.io/badge/Version-v1.0-blue)
-
-![Platform](https://img.shields.io/badge/Platform-Research%20Intelligence-7c3aed)
-
-![Architecture](https://img.shields.io/badge/Architecture-GitHub%20+%20Cloudflare-orange)
-
-![License](https://img.shields.io/badge/License-MIT-green)
-
-![Maintained](https://img.shields.io/badge/Maintained-Yes-success)
-
-![Evolution](https://img.shields.io/badge/Evolution-Continuous-ff69b4)
-
----
-
-**One Platform. Every Insight. Endless Possibilities.**
-
-</div>
 <div align="center">
 
 🌌 Welcome to the Universe of iRAM
