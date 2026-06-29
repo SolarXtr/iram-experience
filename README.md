@@ -29,12 +29,33 @@
 **One Platform. Every Insight. Endless Possibilities.**
 
 </div>
+<div align="center">
 
----
+🌌 Welcome to the Universe of iRAM
 
-## 🚪 Open the Gate
+<img src="assets/images/banner-universe.png" alt="iRAM Experience Banner" width="100%">
 
-Every great journey begins with a single step.
+iRAM Experience
+Research Intelligence Platform
+
+Where Research Meets Intelligence.
+
+
+
+
+
+
+
+
+
+
+One Platform. Every Insight. Endless Possibilities.
+
+🌐 Live Demo • 📖 Documentation • 🗺️ Roadmap • 📜 Chronicle
+
+</div>
+
+🚪 Open the Gate
 
 Every great platform begins with a vision.
 
@@ -42,34 +63,26 @@ iRAM was not created simply to build another dashboard.
 
 It was born from a vision to transform research administration into an intelligent, connected, and meaningful digital experience.
 
-Today, iRAM is evolving into a **Research Intelligence Platform** that brings together research, analytics, automation, artificial intelligence, and people within one unified ecosystem.
+Today, iRAM is evolving into a Research Intelligence Platform that integrates research, analytics, automation, artificial intelligence, and people into one connected ecosystem.
 
 Welcome to the Universe of iRAM.
 
----
+🌟 Vision
 
-# 🌟 Vision
+Transform research data into strategic intelligence that empowers researchers, administrators, executives, and organizations to make better decisions.
 
-To transform research data into strategic intelligence that empowers researchers, administrators, and executives to make better decisions.
+🎯 Mission
 
----
+Create a connected ecosystem where
 
-# 🎯 Mission
+📊 Data becomes Insight
+🧠 Insight becomes Intelligence
+🤖 Intelligence empowers People
+🚀 Research creates Impact
+🌌 The Universe
 
-Create a modern research ecosystem where
+The Universe of iRAM consists of interconnected modules.
 
-* 📊 Data becomes Insight
-* 🧠 Insight becomes Intelligence
-* 🤖 Intelligence empowers People
-* 🚀 Research creates Impact
-
----
-
-# 🌌 The Universe
-
-The Universe of iRAM is built around interconnected experiences.
-
-```
 🌍 Executive Dashboard
 
 📊 Research Analytics
@@ -87,7 +100,6 @@ The Universe of iRAM is built around interconnected experiences.
 📜 The iRAM Chronicle
 
 🚀 Research Operating System
-```
 
 Every module tells a story.
 
@@ -95,11 +107,14 @@ Every service has a purpose.
 
 Every dashboard creates insight.
 
----
-
-# 🏗 Project Structure
-
-```
+✨ Core Principles
+Story First
+Premium Simplicity
+Human-Centered Design
+AI Native
+Continuous Evolution
+Clarity Before Complexity
+🏗 Project Structure
 iram-experience/
 
 ├── assets/
@@ -109,127 +124,62 @@ iram-experience/
 │   ├── icons/
 │   └── fonts/
 │
-├── pages/
-│   ├── dashboards/
-│   ├── ai/
-│   ├── services/
-│   ├── story/
-│   └── chronicle/
-│
 ├── docs/
 │   ├── Vision.md
-│   ├── Journey.md
 │   ├── Brand.md
-│   ├── Architecture.md
+│   ├── Journey.md
 │   ├── DesignSystem.md
+│   ├── Architecture.md
 │   ├── Roadmap.md
 │   └── Chronicle.md
 │
+├── pages/
+│   ├── dashboards/
+│   ├── services/
+│   ├── story/
+│   ├── chronicle/
+│   └── ai/
+│
 ├── index.html
 └── README.md
-```
-
----
-
-# 🎨 Design Philosophy
-
-Technology should not complicate research.
-
-It should simplify it.
-
-Every interface.
-
-Every animation.
-
-Every dashboard.
-
-Every AI capability.
-
-Every line of code.
-
-Exists to help people make better research decisions.
-
----
-
-# 📖 The Story Behind iRAM
-
-iRAM is more than software.
-
-It is a long-term journey.
-
-Every module begins with a question.
+🗺 Roadmap
+Phase	Mission	Status
+🌱 Genesis	Repository Foundation	✅
+🚪 Phase 1	Open the Gate	🚧
+🌌 Phase 2	Landing Experience	⏳
+📊 Phase 3	Dashboard Universe	⏳
+📖 Phase 4	The Story Behind	⏳
+🤖 Phase 5	AI Center	⏳
+🚀 Phase 6	Research Operating System	⏳
+📜 The iRAM Chronicle
 
 Every feature has a reason.
 
-Every release is another step in the evolution of the platform.
+Every module has a story.
 
----
+Every release is another milestone in the continuing evolution of iRAM.
 
-# 🌱 Development Principles
+This repository preserves not only the source code, but also the vision, architecture, design philosophy, and journey behind the platform.
 
-* Story First
-* Premium Simplicity
-* Human-Centered Design
-* AI Native
-* Continuous Evolution
-* Clarity Before Complexity
+🤝 Contributing
 
----
+Every contribution should align with the philosophy of iRAM.
 
-# 🚀 Roadmap
+Before writing code, understand the story.
 
-### GENESIS
+Before adding features, understand the purpose.
 
-Open the Gate
+Before changing the experience, understand the people.
 
-↓
+📄 License
 
-Landing Experience
-
-↓
-
-Dashboard Universe
-
-↓
-
-Story Behind
-
-↓
-
-AI Center
-
-↓
-
-Research Intelligence
-
-↓
-
-Research Operating System
-
----
-
-# 📜 The iRAM Chronicle
-
-Every milestone.
-
-Every design decision.
-
-Every idea.
-
-Every improvement.
-
-Will be documented as part of the continuing journey of iRAM.
-
-Because great platforms are not only built.
-
-They evolve.
-
----
+This project is released under the MIT License.
 
 <div align="center">
 
-## 🌌 Welcome to the Universe of iRAM
+🌌 Welcome to the Universe of iRAM
+The journey has just begun.
 
-**The journey has just begun.**
+"Every module tells a story."
 
 </div>
