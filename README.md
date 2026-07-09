@@ -158,8 +158,8 @@ Documentation begins here.
 - docs/01-Journey.md
 - docs/02-Vision.md
 - docs/04-Foundation-Framework.md
-- docs/09-Project-Charter.md
 - docs/07-Development-Plan.md
+- docs/09-Project-Charter.md
 
 ---
 
