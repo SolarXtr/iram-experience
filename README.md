@@ -88,12 +88,12 @@ iram-experience/
 |----------|-------------|
 | 00-Prologue | Opening the Universe of iRAM |
 | 01-Journey | The story behind iRAM |
-| Vision | Strategic direction |
-| Foundation Framework | Engineering principles |
-| Project Charter | Project governance |
-| Development Plan | Project roadmap |
-| PROJECT-STATUS | Current progress |
-| The-iRAM-Chronicle | Historical timeline |
+| 02-Vision | Strategic direction |
+| 04-Foundation Framework | Engineering principles |
+| 06-Project Charter | Project governance |
+| 07-Development Plan | Project roadmap |
+| 09-PROJECT-STATUS | Current progress |
+| 17-The-iRAM-Chronicle | Historical timeline |
 
 ---
 
@@ -156,10 +156,10 @@ Documentation begins here.
 
 - docs/00-Prologue.md
 - docs/01-Journey.md
-- docs/Vision.md
-- docs/Foundation-Framework.md
-- docs/Project-Charter.md
-- docs/Development-Plan.md
+- docs/02-Vision.md
+- docs/04-Foundation-Framework.md
+- docs/09-Project-Charter.md
+- docs/07-Development-Plan.md
 
 ---
 
