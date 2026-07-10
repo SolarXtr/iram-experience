@@ -1,0 +1,1299 @@
+/*
+======================================================================
+ Project      : iRAM (Intelligent Research Administration & Management)
+ File         : styles.css
+ Version      : 1.0.0
+ Phase        : Experience
+ Artifact     : A007.2
+
+ Description  :
+ Core Design System and Landing Page Styles
+
+ Author       : iRAM Project Team
+ Last Updated : 2026-07-10
+======================================================================
+*/
+
+/* ===================================================================
+   01. CSS RESET
+=================================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    font-size:16px;
+}
+
+body{
+    min-height:100vh;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+img,
+picture{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+/* ===================================================================
+   02. DESIGN TOKENS
+=================================================================== */
+
+:root{
+
+    /* Colors */
+
+    --color-primary:#2563EB;
+    --color-primary-dark:#1E40AF;
+    --color-secondary:#60A5FA;
+
+    --color-background:#F8FAFC;
+    --color-surface:#FFFFFF;
+
+    --color-text:#111827;
+    --color-text-light:#64748B;
+
+    --color-border:#E5E7EB;
+
+    --color-success:#16A34A;
+    --color-warning:#D97706;
+    --color-danger:#DC2626;
+
+    /* Typography */
+
+    --font-family:
+        "Segoe UI",
+        Inter,
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    --font-size-xs:0.75rem;
+    --font-size-sm:0.875rem;
+    --font-size-base:1rem;
+    --font-size-lg:1.125rem;
+    --font-size-xl:1.5rem;
+
+    --heading-1:
+        clamp(2.6rem,5vw,4.5rem);
+
+    --heading-2:
+        clamp(2rem,4vw,3rem);
+
+    --heading-3:
+        clamp(1.4rem,2vw,2rem);
+
+    /* Layout */
+
+    --container-width:1200px;
+
+    --space-1:.25rem;
+    --space-2:.5rem;
+    --space-3:1rem;
+    --space-4:1.5rem;
+    --space-5:2rem;
+    --space-6:3rem;
+    --space-7:5rem;
+
+    /* Radius */
+
+    --radius-sm:6px;
+    --radius-md:12px;
+    --radius-lg:20px;
+    --radius-xl:30px;
+
+    /* Shadow */
+
+    --shadow-sm:
+        0 2px 6px rgba(0,0,0,.08);
+
+    --shadow-md:
+        0 8px 25px rgba(0,0,0,.08);
+
+    --shadow-lg:
+        0 20px 60px rgba(0,0,0,.12);
+
+    /* Transition */
+
+    --transition:.3s ease;
+
+    /* Navigation */
+
+    --navbar-height:80px;
+
+}
+
+/* ===================================================================
+   03. GLOBAL
+=================================================================== */
+
+body{
+
+    font-family:var(--font-family);
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+    line-height:1.7;
+
+}
+
+section{
+
+    padding:6rem 1.5rem;
+
+}
+
+.container{
+
+    width:min(
+        100%,
+        var(--container-width)
+    );
+
+    margin-inline:auto;
+
+}
+
+/* ===================================================================
+   04. TYPOGRAPHY
+=================================================================== */
+
+h1,
+h2,
+h3,
+h4{
+
+    line-height:1.15;
+
+    font-weight:700;
+
+    letter-spacing:-0.03em;
+
+}
+
+h1{
+
+    font-size:var(--heading-1);
+
+}
+
+h2{
+
+    font-size:var(--heading-2);
+
+    margin-bottom:2rem;
+
+}
+
+h3{
+
+    font-size:var(--heading-3);
+
+}
+
+p{
+
+    color:var(--color-text-light);
+
+    margin-top:1rem;
+
+    max-width:70ch;
+
+}
+
+small{
+
+    color:var(--color-text-light);
+
+}
+
+/* ===================================================================
+   05. LINKS
+=================================================================== */
+
+a{
+
+    transition:var(--transition);
+
+}
+
+a:hover{
+
+    color:var(--color-primary);
+
+}
+
+/* ===================================================================
+   06. UTILITIES
+=================================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-1{
+
+    margin-top:1rem;
+
+}
+
+.mt-2{
+
+    margin-top:2rem;
+
+}
+
+.mt-3{
+
+    margin-top:3rem;
+
+}
+
+.mb-1{
+
+    margin-bottom:1rem;
+
+}
+
+.mb-2{
+
+    margin-bottom:2rem;
+
+}
+
+.mb-3{
+
+    margin-bottom:3rem;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+.grid{
+
+    display:grid;
+
+}
+
+/* ===================================================================
+   07. HERO FOUNDATION
+=================================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:2rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #ffffff 40%,
+            #dbeafe 100%
+        );
+
+}
+
+.hero h1{
+
+    margin-bottom:1.5rem;
+
+}
+
+.hero p{
+
+    font-size:1.15rem;
+
+    margin-inline:auto;
+
+    max-width:700px;
+
+}
+
+.hero-content{
+
+    max-width:900px;
+
+}
+
+/* ===================================================================
+   END OF PART 1
+=================================================================== */
+/* ===================================================================
+   08. NAVIGATION
+=================================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    width:100%;
+
+    height:var(--navbar-height);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 2rem;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--color-border);
+
+    z-index:1000;
+
+    transition:var(--transition);
+
+}
+
+.logo a{
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--color-primary);
+
+    letter-spacing:-0.04em;
+
+}
+
+.menu{
+
+    display:flex;
+
+    gap:2rem;
+
+}
+
+.menu a{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+    position:relative;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--color-primary);
+
+    transition:var(--transition);
+
+}
+
+.menu a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===================================================================
+   09. HERO COMPONENTS
+=================================================================== */
+
+.hero{
+
+    padding-top:calc(var(--navbar-height) + 2rem);
+
+}
+
+.hero-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.hero h1{
+
+    color:var(--color-primary-dark);
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:1rem;
+
+    margin-top:2.5rem;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+/* ===================================================================
+   10. BUTTON SYSTEM
+=================================================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:.9rem 1.8rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+    border:none;
+
+}
+
+.btn-primary{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.btn-primary:hover{
+
+    background:var(--color-primary-dark);
+
+    transform:translateY(-3px);
+
+}
+
+.btn-secondary{
+
+    background:#fff;
+
+    color:var(--color-primary);
+
+    border:1px solid var(--color-primary);
+
+}
+
+.btn-secondary:hover{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+.btn:focus-visible{
+
+    outline:3px solid var(--color-secondary);
+
+    outline-offset:3px;
+
+}
+
+/* ===================================================================
+   11. ABOUT
+=================================================================== */
+
+#about{
+
+    background:var(--color-surface);
+
+}
+
+#about h2{
+
+    text-align:center;
+
+}
+
+#about p{
+
+    margin-inline:auto;
+
+    text-align:center;
+
+    font-size:1.1rem;
+
+}
+
+/* ===================================================================
+   12. JOURNEY
+=================================================================== */
+
+.timeline{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+    gap:1.5rem;
+
+    margin-top:3rem;
+
+}
+
+.timeline div{
+
+    background:#fff;
+
+    padding:1.5rem;
+
+    border-radius:var(--radius-md);
+
+    border:1px solid var(--color-border);
+
+    box-shadow:var(--shadow-sm);
+
+    text-align:center;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.timeline div:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-md);
+
+    border-color:var(--color-primary);
+
+}
+
+/* ===================================================================
+   13. ARCHITECTURE
+=================================================================== */
+
+#architecture{
+
+    background:#eef5ff;
+
+}
+
+#architecture pre{
+
+    margin-top:2rem;
+
+    background:#fff;
+
+    padding:2rem;
+
+    border-radius:var(--radius-md);
+
+    border:1px solid var(--color-border);
+
+    overflow:auto;
+
+    box-shadow:var(--shadow-sm);
+
+    line-height:1.8;
+
+    color:var(--color-primary-dark);
+
+    font-family:
+        Consolas,
+        monospace;
+
+}
+
+/* ===================================================================
+   END OF PART 2
+=================================================================== */
+/* ===================================================================
+   14. MODULES
+=================================================================== */
+
+#modules{
+
+    background:var(--color-background);
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:2rem;
+
+    margin-top:3rem;
+
+}
+
+.card{
+
+    background:var(--color-surface);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    padding:2rem;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+    border-color:var(--color-primary);
+
+}
+
+.card h3{
+
+    margin-bottom:1rem;
+
+    color:var(--color-primary-dark);
+
+}
+
+.card p{
+
+    margin-top:0;
+
+}
+
+/* ===================================================================
+   15. DOCUMENTATION
+=================================================================== */
+
+#docs{
+
+    background:var(--color-surface);
+
+    text-align:center;
+
+}
+
+#docs p{
+
+    margin-inline:auto;
+
+    font-size:1.05rem;
+
+}
+
+/* ===================================================================
+   16. ROADMAP
+=================================================================== */
+
+#roadmap{
+
+    background:#EEF5FF;
+
+}
+
+#roadmap pre{
+
+    margin-top:2rem;
+
+    background:#ffffff;
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-md);
+
+    padding:2rem;
+
+    overflow:auto;
+
+    box-shadow:var(--shadow-sm);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    line-height:2;
+
+    color:var(--color-primary-dark);
+
+}
+
+/* ===================================================================
+   17. FOOTER
+=================================================================== */
+
+footer{
+
+    background:#0F172A;
+
+    color:#F8FAFC;
+
+    text-align:center;
+
+    padding:5rem 1.5rem;
+
+}
+
+footer h2{
+
+    color:#ffffff;
+
+}
+
+footer p{
+
+    color:#CBD5E1;
+
+    margin-inline:auto;
+
+}
+
+footer small{
+
+    display:block;
+
+    margin-top:2rem;
+
+    color:#94A3B8;
+
+}
+
+/* ===================================================================
+   18. COMMON SECTION STYLE
+=================================================================== */
+
+section h2{
+
+    text-align:center;
+
+    color:var(--color-primary-dark);
+
+}
+
+section > .container{
+
+    animation:fadeUp .8s ease both;
+
+}
+
+/* ===================================================================
+   19. SURFACE COMPONENTS
+=================================================================== */
+
+.surface{
+
+    background:var(--color-surface);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow-sm);
+
+    border:1px solid var(--color-border);
+
+    padding:2rem;
+
+}
+
+.glass{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:var(--radius-lg);
+
+}
+
+/* ===================================================================
+   20. DIVIDER
+=================================================================== */
+
+.divider{
+
+    width:100px;
+
+    height:4px;
+
+    margin:1rem auto 3rem;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+
+}
+
+/* ===================================================================
+   21. BADGE
+=================================================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    padding:.45rem .9rem;
+
+    border-radius:999px;
+
+    background:#DBEAFE;
+
+    color:var(--color-primary-dark);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+/* ===================================================================
+   22. SHADOW UTILITIES
+=================================================================== */
+
+.shadow-sm{
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.shadow-md{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.shadow-lg{
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/* ===================================================================
+   END OF PART 3
+=================================================================== */
+/* ===================================================================
+   23. RESPONSIVE DESIGN
+=================================================================== */
+
+@media (max-width:1023px){
+
+    .menu{
+        gap:1rem;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media (max-width:768px){
+
+    section{
+        padding:4rem 1.25rem;
+    }
+
+    .navbar{
+
+        padding:0 1rem;
+        flex-wrap:wrap;
+        height:auto;
+        min-height:var(--navbar-height);
+
+    }
+
+    .menu{
+
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:.75rem;
+
+        padding:1rem 0;
+
+    }
+
+    .hero{
+
+        min-height:auto;
+        padding-top:8rem;
+        padding-bottom:5rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .timeline{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (min-width:1400px){
+
+    :root{
+
+        --container-width:1320px;
+
+    }
+
+}
+
+/* ===================================================================
+   24. ANIMATIONS
+=================================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:fadeUp .8s ease both;
+
+}
+
+.float{
+
+    animation:float 6s ease-in-out infinite;
+
+}
+
+/* ===================================================================
+   25. ACCESSIBILITY
+=================================================================== */
+
+:focus-visible{
+
+    outline:3px solid var(--color-secondary);
+    outline-offset:3px;
+
+}
+
+::selection{
+
+    background:var(--color-primary);
+    color:#fff;
+
+}
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/* ===================================================================
+   26. SCROLLBAR
+=================================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EDF2F7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--color-primary);
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--color-primary-dark);
+
+}
+
+/* ===================================================================
+   27. DARK THEME FOUNDATION
+=================================================================== */
+
+[data-theme="dark"]{
+
+    --color-background:#0F172A;
+    --color-surface:#1E293B;
+
+    --color-text:#F8FAFC;
+    --color-text-light:#CBD5E1;
+
+    --color-border:#334155;
+
+}
+
+[data-theme="dark"] body{
+
+    background:var(--color-background);
+    color:var(--color-text);
+
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .surface,
+[data-theme="dark"] #architecture pre,
+[data-theme="dark"] #roadmap pre{
+
+    background:var(--color-surface);
+    color:var(--color-text);
+
+}
+
+[data-theme="dark"] footer{
+
+    background:#020617;
+
+}
+
+/* ===================================================================
+   28. PRINT
+=================================================================== */
+
+@media print{
+
+    .navbar,
+    .hero-buttons{
+
+        display:none;
+
+    }
+
+    body{
+
+        background:#fff;
+        color:#000;
+
+    }
+
+}
+
+/* ===================================================================
+   29. UTILITIES
+=================================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.visually-hidden{
+
+    position:absolute;
+    width:1px;
+    height:1px;
+    margin:-1px;
+    padding:0;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.text-primary{
+
+    color:var(--color-primary);
+
+}
+
+.bg-primary{
+
+    background:var(--color-primary);
+    color:#fff;
+
+}
+
+.rounded{
+
+    border-radius:var(--radius-md);
+
+}
+
+/* ===================================================================
+   END OF FILE
+
+   Project  : iRAM
+   File     : styles.css
+   Version  : 1.0.0
+   Status   : Production Foundation
+
+=================================================================== */
