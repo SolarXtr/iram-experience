@@ -1,215 +1,225 @@
-# iRAM
-### Intelligent Research Administration & Management
-
-> *Transforming Research Information into Organizational Intelligence.*
-
-[![Status](https://img.shields.io/badge/Status-Foundation%20v1.1-blue.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
-[![Repository](https://img.shields.io/badge/Repository-Active-success.svg)]()
-
----
-
 # 🌌 Welcome to the Universe of iRAM
 
-Welcome to **iRAM (Intelligent Research Administration & Management)**.
+> **Transforming Research Administration into Organizational Intelligence**
 
-iRAM is more than a software project.
-
-It is a long-term initiative to create a Research Intelligence Platform that combines research administration, data analytics, knowledge management, artificial intelligence, and sustainable software engineering into a unified ecosystem.
-
-Our goal is not only to build software, but also to establish an Organizational Reference Model that future teams can understand, maintain, and continue to develop.
-
-> **Knowledge preserved today becomes the foundation of tomorrow.**
+iRAM (**Intelligent Research Administration & Management**) is an organizational platform designed to transform research administration into a sustainable knowledge ecosystem. It combines governance, technology, data, and artificial intelligence to support research excellence while preserving institutional knowledge for future generations.
 
 ---
 
-# 🎯 Vision
+## 🌟 Vision
 
-To become a sustainable Research Intelligence Platform and an Organizational Reference Model for research management.
-
----
-
-# 🚀 Mission
-
-- Empower research administration with intelligent information systems.
-- Transform data into actionable insights.
-- Preserve organizational knowledge through documentation.
-- Build reusable architecture and sustainable software.
-- Support continuous innovation in research management.
+To become a **Reference Architecture and Organizational Framework** for research administration, enabling institutions to manage knowledge, support strategic decisions, and continuously innovate through digital transformation.
 
 ---
 
-# ✨ Core Principles
+## 🎯 Mission
 
-iRAM is built upon five fundamental principles.
-
-| Pillar | Description |
-|---------|-------------|
-| 🏛 Foundation | Build with architecture before implementation. |
-| 📚 Knowledge | Preserve organizational knowledge. |
-| 🧠 Intelligence | Transform information into decision support. |
-| 🤝 Collaboration | Connect people through technology. |
-| 🌱 Sustainability | Design systems that future teams can extend. |
+* Support end-to-end research administration.
+* Preserve organizational knowledge and institutional memory.
+* Provide executive insights through data analytics.
+* Establish documentation and architecture as the foundation of sustainable development.
+* Build an AI-ready platform for future innovation.
 
 ---
 
-# 🌍 Dashboard Universe
+# 🏛 Core Principles
 
-The iRAM ecosystem brings together multiple dashboards and services into one connected platform.
+iRAM is built upon four fundamental principles.
 
-| Dashboard | Description |
-|-----------|-------------|
-| KPI Dashboard | Executive KPI monitoring |
-| Research Dashboard | Research portfolio analytics |
-| Scopus Dashboard | Publication and citation analytics |
-| Dashboard Portal | Central access to all dashboards |
+| Principle           | Description                                   |
+| ------------------- | --------------------------------------------- |
+| Documentation First | Every decision is documented and traceable.   |
+| Architecture First  | Design before implementation.                 |
+| Knowledge First     | Transform data into organizational knowledge. |
+| People First        | Technology empowers people and organizations. |
 
 ---
 
-# 🏗 Repository Structure
+# 🏗 Architecture Overview
 
 ```text
-iram-experience/
-│
-├── docs/
-├── src/
-├── assets/
-├── public/
-├── .github/
-├── README.md
-└── CHANGELOG.md
+                           iRAM
+
+                         Vision
+                            │
+       ┌────────────────────┼────────────────────┐
+       │                    │                    │
+ Business Layer      Knowledge Layer     Technology Layer
+       │                    │                    │
+       └────────────────────┼────────────────────┘
+                            │
+                   Experience Layer
+                            │
+                Organizational Intelligence
+```
+
+The complete architecture is documented in:
+
+* `docs/03-Architecture.md`
+
+---
+
+# 📚 Documentation Hub
+
+| Document                   | Purpose                 |
+| -------------------------- | ----------------------- |
+| 00-Prologue                | Why iRAM exists         |
+| 01-Journey                 | Project journey         |
+| 02-Vision                  | Strategic direction     |
+| 03-Architecture            | Platform blueprint      |
+| 04-Foundation-Framework    | Foundation model        |
+| 05-Design-System           | UI / UX standards       |
+| 06-Project-Charter         | Project governance      |
+| 07-Development-Plan        | Development strategy    |
+| 08-Roadmap                 | Future roadmap          |
+| 09-PROJECT-STATUS          | Current project status  |
+| 10-Brand                   | Brand identity          |
+| 11-Contributing            | Contribution guidelines |
+| 12-Glossary                | Common terminology      |
+| 13-Manifesto               | Project philosophy      |
+| 14-Decisions               | Architectural decisions |
+| 15-Future-Ideas            | Innovation backlog      |
+| 16-Release-Notes           | Version history         |
+| 17-The-iRAM-Chronicle      | Project chronicle       |
+| 18-Documentation-Standards | Documentation standards |
+| 19-Naming-Conventions      | Naming standards        |
+
+---
+
+# 🚀 Project Roadmap
+
+```text
+Foundation
+████████████████████ 100%
+
+Experience
+██████────────────── 30%
+
+Platform
+────────────────────
+
+Intelligence
+────────────────────
+
+Legacy
+────────────────────
 ```
 
 ---
 
-# 📚 Documentation
+# 📊 Current Status
 
-| Document | Description |
-|----------|-------------|
-| 00-Prologue | Opening the Universe of iRAM |
-| 01-Journey | The story behind iRAM |
-| 02-Vision | Strategic direction |
-| 04-Foundation Framework | Engineering principles |
-| 06-Project Charter | Project governance |
-| 07-Development Plan | Project roadmap |
-| 09-PROJECT-STATUS | Current progress |
-| 17-The-iRAM-Chronicle | Historical timeline |
+| Phase        | Status         |
+| ------------ | -------------- |
+| Foundation   | ✅ Completed    |
+| Experience   | 🚀 In Progress |
+| Platform     | ⏳ Planned      |
+| Intelligence | ⏳ Planned      |
+| Legacy       | ⏳ Planned      |
 
 ---
 
-# 🚀 Development Roadmap
+# 🛠 Technology Stack
 
-## Phase 1
-Foundation
+### Frontend
 
-- Repository
-- Documentation
-- Standards
+* HTML5
+* CSS3
+* JavaScript
 
-## Phase 2
+### Backend
 
-Platform
+* Google Apps Script
 
-- Landing Page
-- Dashboard Universe
-- Services
+### Data Platform
 
-## Phase 3
+* Google Sheets
 
-Research Intelligence
+### Analytics
 
-- Analytics
-- AI
-- Automation
+* Power BI
 
-## Phase 4
+### Repository
 
-Enterprise
+* Git & GitHub
 
-- Organizational Framework
-- Reference Model
-- Knowledge Platform
+### Hosting
+
+* Cloudflare Pages
+
+### Artificial Intelligence
+
+* OpenAI
+
+---
+
+# 🌍 Repository Structure
+
+```text
+iram-experience/
+│
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+│
+├── docs/
+│   ├── 00-Prologue.md
+│   ├── 01-Journey.md
+│   ├── 02-Vision.md
+│   ├── 03-Architecture.md
+│   └── ...
+│
+├── src/
+├── assets/
+└── public/
+```
+
+---
+
+# 🚀 Quick Start
+
+```bash
+git clone https://github.com/SolarXtr/iram-experience.git
+
+cd iram-experience
+```
+
+Recommended reading order:
+
+1. README.md
+2. docs/00-Prologue.md
+3. docs/01-Journey.md
+4. docs/02-Vision.md
+5. docs/03-Architecture.md
 
 ---
 
 # 🤝 Contributing
 
-Every contribution matters.
+Every contribution strengthens the Universe of iRAM.
 
-Please read the documentation before contributing.
-
-Architecture.
-
-Documentation.
-
-Quality.
-
-Knowledge.
-
-These principles guide every contribution to iRAM.
+Please read the contribution guidelines before submitting changes.
 
 ---
 
-# 📖 Project Documents
+# 📖 Release
 
-Documentation begins here.
+Current Foundation Release
 
-- docs/00-Prologue.md
-- docs/01-Journey.md
-- docs/02-Vision.md
-- docs/04-Foundation-Framework.md
-- docs/07-Development-Plan.md
-- docs/09-Project-Charter.md
+**foundation-v1.2**
 
----
+Current Development Phase
 
-# 🌌 Engineering Philosophy
-
-We believe software should be understandable.
-
-Documentation should be reusable.
-
-Architecture should outlive technology.
-
-Knowledge should belong to the organization—not to individuals.
+**Experience**
 
 ---
 
-# 📈 Current Status
+# 🌌 The Universe of iRAM
 
-| Item | Status |
-|------|--------|
-| Repository | ✅ Active |
-| Foundation | 🚧 In Progress |
-| Documentation | 🚧 Growing |
-| Development | 🚧 Sprint M1.1 |
+> *Every Atom of the Universe of iRAM is You.*
 
----
+Built with purpose.
 
-# 🌠 The Journey Begins
+Designed for sustainability.
 
-Every dashboard.
-
-Every document.
-
-Every commit.
-
-Every release.
-
-Every milestone.
-
-Together, they become part of the living history of iRAM.
-
----
-
-## 📜 License
-
-This project is released under the MIT License.
-
----
-
-# 🌌 Welcome to the Universe of iRAM
-
-*"We are not just building software.*
-
-*We are building a legacy."*
+Created for the future.
