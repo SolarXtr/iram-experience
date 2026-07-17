@@ -1,22 +1,10 @@
-/*
-======================================================================
- Project      : iRAM (Intelligent Research Administration & Management)
- File         : styles.css
- Version      : 1.0.0
- Phase        : Experience
- Artifact     : A007.2
+/* ==========================================================
+   iRAM Experience
+   File : public/assets/css/styles.css
+   Version : A007.1 MVP
+   ========================================================== */
 
- Description  :
- Core Design System and Landing Page Styles
-
- Author       : iRAM Project Team
- Last Updated : 2026-07-10
-======================================================================
-*/
-
-/* ===================================================================
-   01. CSS RESET
-=================================================================== */
+/* ---------- Reset ---------- */
 
 *,
 *::before,
@@ -26,1274 +14,429 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-    font-size:16px;
-}
-
-body{
-    min-height:100vh;
-    text-rendering:optimizeLegibility;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
-
-img,
-picture{
-    display:block;
-    max-width:100%;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-ul{
-    list-style:none;
-}
-
-button,
-input,
-textarea,
-select{
-    font:inherit;
-}
-
-/* ===================================================================
-   02. DESIGN TOKENS
-=================================================================== */
+/* ---------- Root ---------- */
 
 :root{
 
-    /* Colors */
+    --primary:#2563eb;
+    --primary-dark:#1e40af;
 
-    --color-primary:#2563EB;
-    --color-primary-dark:#1E40AF;
-    --color-secondary:#60A5FA;
+    --secondary:#64748b;
 
-    --color-background:#F8FAFC;
-    --color-surface:#FFFFFF;
+    --background:#f8fafc;
+    --surface:#ffffff;
 
-    --color-text:#111827;
-    --color-text-light:#64748B;
+    --text:#111827;
+    --text-light:#6b7280;
 
-    --color-border:#E5E7EB;
+    --border:#e5e7eb;
 
-    --color-success:#16A34A;
-    --color-warning:#D97706;
-    --color-danger:#DC2626;
+    --radius:12px;
 
-    /* Typography */
-
-    --font-family:
-        "Segoe UI",
-        Inter,
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    --font-size-xs:0.75rem;
-    --font-size-sm:0.875rem;
-    --font-size-base:1rem;
-    --font-size-lg:1.125rem;
-    --font-size-xl:1.5rem;
-
-    --heading-1:
-        clamp(2.6rem,5vw,4.5rem);
-
-    --heading-2:
-        clamp(2rem,4vw,3rem);
-
-    --heading-3:
-        clamp(1.4rem,2vw,2rem);
-
-    /* Layout */
-
-    --container-width:1200px;
-
-    --space-1:.25rem;
-    --space-2:.5rem;
-    --space-3:1rem;
-    --space-4:1.5rem;
-    --space-5:2rem;
-    --space-6:3rem;
-    --space-7:5rem;
-
-    /* Radius */
-
-    --radius-sm:6px;
-    --radius-md:12px;
-    --radius-lg:20px;
-    --radius-xl:30px;
-
-    /* Shadow */
-
-    --shadow-sm:
-        0 2px 6px rgba(0,0,0,.08);
-
-    --shadow-md:
-        0 8px 25px rgba(0,0,0,.08);
-
-    --shadow-lg:
-        0 20px 60px rgba(0,0,0,.12);
-
-    /* Transition */
+    --shadow:0 10px 25px rgba(0,0,0,.08);
 
     --transition:.3s ease;
 
-    /* Navigation */
-
-    --navbar-height:80px;
+    --container:1200px;
 
 }
 
-/* ===================================================================
-   03. GLOBAL
-=================================================================== */
+/* ---------- Base ---------- */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
 
 body{
 
-    font-family:var(--font-family);
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    background:var(--color-background);
+    color:var(--text);
 
-    color:var(--color-text);
+    background:var(--background);
 
     line-height:1.7;
 
 }
 
-section{
-
-    padding:6rem 1.5rem;
-
-}
+/* ---------- Container ---------- */
 
 .container{
 
-    width:min(
-        100%,
-        var(--container-width)
-    );
+    width:min(90%,var(--container));
 
-    margin-inline:auto;
+    margin:auto;
 
 }
 
-/* ===================================================================
-   04. TYPOGRAPHY
-=================================================================== */
+/* ---------- Header ---------- */
 
-h1,
-h2,
-h3,
-h4{
+.header{
 
-    line-height:1.15;
-
-    font-weight:700;
-
-    letter-spacing:-0.03em;
-
-}
-
-h1{
-
-    font-size:var(--heading-1);
-
-}
-
-h2{
-
-    font-size:var(--heading-2);
-
-    margin-bottom:2rem;
-
-}
-
-h3{
-
-    font-size:var(--heading-3);
-
-}
-
-p{
-
-    color:var(--color-text-light);
-
-    margin-top:1rem;
-
-    max-width:70ch;
-
-}
-
-small{
-
-    color:var(--color-text-light);
-
-}
-
-/* ===================================================================
-   05. LINKS
-=================================================================== */
-
-a{
-
-    transition:var(--transition);
-
-}
-
-a:hover{
-
-    color:var(--color-primary);
-
-}
-
-/* ===================================================================
-   06. UTILITIES
-=================================================================== */
-
-.text-center{
-
-    text-align:center;
-
-}
-
-.mt-1{
-
-    margin-top:1rem;
-
-}
-
-.mt-2{
-
-    margin-top:2rem;
-
-}
-
-.mt-3{
-
-    margin-top:3rem;
-
-}
-
-.mb-1{
-
-    margin-bottom:1rem;
-
-}
-
-.mb-2{
-
-    margin-bottom:2rem;
-
-}
-
-.mb-3{
-
-    margin-bottom:3rem;
-
-}
-
-.flex{
-
-    display:flex;
-
-}
-
-.grid{
-
-    display:grid;
-
-}
-
-/* ===================================================================
-   07. HERO FOUNDATION
-=================================================================== */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:2rem;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eff6ff 0%,
-            #ffffff 40%,
-            #dbeafe 100%
-        );
-
-}
-
-.hero h1{
-
-    margin-bottom:1.5rem;
-
-}
-
-.hero p{
-
-    font-size:1.15rem;
-
-    margin-inline:auto;
-
-    max-width:700px;
-
-}
-
-.hero-content{
-
-    max-width:900px;
-
-}
-
-/* ===================================================================
-   END OF PART 1
-=================================================================== */
-/* ===================================================================
-   08. NAVIGATION
-=================================================================== */
-
-.navbar{
-
-    position:fixed;
+    position:sticky;
 
     top:0;
-    left:0;
-    width:100%;
-
-    height:var(--navbar-height);
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 2rem;
-
-    background:rgba(255,255,255,.88);
-
-    backdrop-filter:blur(12px);
-
-    border-bottom:1px solid var(--color-border);
 
     z-index:1000;
 
-    transition:var(--transition);
+    background:#fff;
+
+    border-bottom:1px solid var(--border);
 
 }
 
-.logo a{
+.header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+}
+
+/* ---------- Logo ---------- */
+
+.logo{
+
+    text-decoration:none;
+
+    color:var(--primary);
 
     font-size:1.5rem;
 
     font-weight:700;
 
-    color:var(--color-primary);
-
-    letter-spacing:-0.04em;
-
 }
 
-.menu{
+/* ---------- Navigation ---------- */
+
+.nav-menu{
 
     display:flex;
 
-    gap:2rem;
+    list-style:none;
+
+    gap:24px;
 
 }
 
-.menu a{
+.nav-menu a{
 
-    font-size:.95rem;
+    color:var(--text);
 
-    font-weight:600;
-
-    color:var(--color-text);
-
-    position:relative;
-
-}
-
-.menu a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-6px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--color-primary);
+    text-decoration:none;
 
     transition:var(--transition);
 
 }
 
-.menu a:hover::after{
+.nav-menu a:hover{
 
-    width:100%;
+    color:var(--primary);
 
 }
 
-/* ===================================================================
-   09. HERO COMPONENTS
-=================================================================== */
+/* ---------- Mobile Button ---------- */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    font-size:1.6rem;
+
+    cursor:pointer;
+
+}
+
+/* ---------- Hero ---------- */
 
 .hero{
 
-    padding-top:calc(var(--navbar-height) + 2rem);
+    padding:120px 0;
 
-}
-
-.hero-content{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
+    text-align:center;
 
 }
 
 .hero h1{
 
-    color:var(--color-primary-dark);
+    font-size:3rem;
+
+    margin-bottom:20px;
 
 }
 
-.hero-buttons{
+.hero p{
+
+    color:var(--text-light);
+
+    max-width:700px;
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+}
+
+/* ---------- Buttons ---------- */
+
+.hero-actions{
 
     display:flex;
 
-    gap:1rem;
+    justify-content:center;
 
-    margin-top:2.5rem;
+    gap:16px;
 
     flex-wrap:wrap;
 
-    justify-content:center;
-
 }
-
-/* ===================================================================
-   10. BUTTON SYSTEM
-=================================================================== */
 
 .btn{
 
-    display:inline-flex;
+    display:inline-block;
 
-    align-items:center;
-
-    justify-content:center;
-
-    padding:.9rem 1.8rem;
+    padding:12px 28px;
 
     border-radius:999px;
 
-    font-weight:600;
+    text-decoration:none;
 
     transition:var(--transition);
-
-    cursor:pointer;
-
-    border:none;
 
 }
 
 .btn-primary{
 
-    background:var(--color-primary);
+    background:var(--primary);
 
     color:#fff;
-
-    box-shadow:var(--shadow-md);
 
 }
 
 .btn-primary:hover{
 
-    background:var(--color-primary-dark);
-
-    transform:translateY(-3px);
+    background:var(--primary-dark);
 
 }
 
 .btn-secondary{
 
-    background:#fff;
+    border:1px solid var(--primary);
 
-    color:var(--color-primary);
-
-    border:1px solid var(--color-primary);
+    color:var(--primary);
 
 }
 
 .btn-secondary:hover{
 
-    background:var(--color-primary);
+    background:var(--primary);
 
     color:#fff;
 
-    transform:translateY(-3px);
+}
+
+/* ---------- Sections ---------- */
+
+.section{
+
+    padding:80px 0;
 
 }
 
-.btn:focus-visible{
+.section h2{
 
-    outline:3px solid var(--color-secondary);
-
-    outline-offset:3px;
-
-}
-
-/* ===================================================================
-   11. ABOUT
-=================================================================== */
-
-#about{
-
-    background:var(--color-surface);
-
-}
-
-#about h2{
+    margin-bottom:30px;
 
     text-align:center;
 
-}
-
-#about p{
-
-    margin-inline:auto;
-
-    text-align:center;
-
-    font-size:1.1rem;
+    font-size:2rem;
 
 }
 
-/* ===================================================================
-   12. JOURNEY
-=================================================================== */
-
-.timeline{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-
-    gap:1.5rem;
-
-    margin-top:3rem;
-
-}
-
-.timeline div{
-
-    background:#fff;
-
-    padding:1.5rem;
-
-    border-radius:var(--radius-md);
-
-    border:1px solid var(--color-border);
-
-    box-shadow:var(--shadow-sm);
-
-    text-align:center;
-
-    font-weight:600;
-
-    transition:var(--transition);
-
-}
-
-.timeline div:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:var(--shadow-md);
-
-    border-color:var(--color-primary);
-
-}
-
-/* ===================================================================
-   13. ARCHITECTURE
-=================================================================== */
-
-#architecture{
-
-    background:#eef5ff;
-
-}
-
-#architecture pre{
-
-    margin-top:2rem;
-
-    background:#fff;
-
-    padding:2rem;
-
-    border-radius:var(--radius-md);
-
-    border:1px solid var(--color-border);
-
-    overflow:auto;
-
-    box-shadow:var(--shadow-sm);
-
-    line-height:1.8;
-
-    color:var(--color-primary-dark);
-
-    font-family:
-        Consolas,
-        monospace;
-
-}
-
-/* ===================================================================
-   END OF PART 2
-=================================================================== */
-/* ===================================================================
-   14. MODULES
-=================================================================== */
-
-#modules{
-
-    background:var(--color-background);
-
-}
+/* ---------- Cards ---------- */
 
 .cards{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
 
-    gap:2rem;
-
-    margin-top:3rem;
+    gap:24px;
 
 }
 
 .card{
 
-    background:var(--color-surface);
+    background:var(--surface);
 
-    border:1px solid var(--color-border);
+    border-radius:var(--radius);
 
-    border-radius:var(--radius-lg);
+    padding:28px;
 
-    padding:2rem;
-
-    box-shadow:var(--shadow-sm);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:4px;
-
-    background:linear-gradient(
-        90deg,
-        var(--color-primary),
-        var(--color-secondary)
-    );
-
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:var(--shadow-lg);
-
-    border-color:var(--color-primary);
+    box-shadow:var(--shadow);
 
 }
 
 .card h3{
 
-    margin-bottom:1rem;
+    margin-bottom:15px;
 
-    color:var(--color-primary-dark);
-
-}
-
-.card p{
-
-    margin-top:0;
+    color:var(--primary);
 
 }
 
-/* ===================================================================
-   15. DOCUMENTATION
-=================================================================== */
+/* ---------- Timeline ---------- */
 
-#docs{
+.timeline{
 
-    background:var(--color-surface);
+    list-style:none;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.timeline li{
+
+    background:#fff;
+
+    margin-bottom:15px;
+
+    padding:16px 20px;
+
+    border-left:5px solid var(--primary);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ---------- Footer ---------- */
+
+.footer{
+
+    background:#111827;
+
+    color:#fff;
 
     text-align:center;
 
-}
+    padding:35px 0;
 
-#docs p{
-
-    margin-inline:auto;
-
-    font-size:1.05rem;
+    margin-top:60px;
 
 }
 
-/* ===================================================================
-   16. ROADMAP
-=================================================================== */
+/* ---------- Back To Top ---------- */
 
-#roadmap{
+.back-to-top{
 
-    background:#EEF5FF;
+    position:fixed;
 
-}
+    right:25px;
 
-#roadmap pre{
+    bottom:25px;
 
-    margin-top:2rem;
+    width:46px;
 
-    background:#ffffff;
+    height:46px;
 
-    border:1px solid var(--color-border);
+    border:none;
 
-    border-radius:var(--radius-md);
+    border-radius:50%;
 
-    padding:2rem;
+    background:var(--primary);
 
-    overflow:auto;
+    color:#fff;
 
-    box-shadow:var(--shadow-sm);
+    cursor:pointer;
 
-    font-family:
-        Consolas,
-        monospace;
+    display:none;
 
-    line-height:2;
-
-    color:var(--color-primary-dark);
+    box-shadow:var(--shadow);
 
 }
 
-/* ===================================================================
-   17. FOOTER
-=================================================================== */
-
-footer{
-
-    background:#0F172A;
-
-    color:#F8FAFC;
-
-    text-align:center;
-
-    padding:5rem 1.5rem;
-
-}
-
-footer h2{
-
-    color:#ffffff;
-
-}
-
-footer p{
-
-    color:#CBD5E1;
-
-    margin-inline:auto;
-
-}
-
-footer small{
+.back-to-top.show{
 
     display:block;
 
-    margin-top:2rem;
-
-    color:#94A3B8;
-
 }
 
-/* ===================================================================
-   18. COMMON SECTION STYLE
-=================================================================== */
+/* ---------- Responsive ---------- */
 
-section h2{
+@media(max-width:768px){
 
-    text-align:center;
+    .menu-toggle{
 
-    color:var(--color-primary-dark);
+        display:block;
 
-}
-
-section > .container{
-
-    animation:fadeUp .8s ease both;
-
-}
-
-/* ===================================================================
-   19. SURFACE COMPONENTS
-=================================================================== */
-
-.surface{
-
-    background:var(--color-surface);
-
-    border-radius:var(--radius-lg);
-
-    box-shadow:var(--shadow-sm);
-
-    border:1px solid var(--color-border);
-
-    padding:2rem;
-
-}
-
-.glass{
-
-    background:rgba(255,255,255,.75);
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:var(--radius-lg);
-
-}
-
-/* ===================================================================
-   20. DIVIDER
-=================================================================== */
-
-.divider{
-
-    width:100px;
-
-    height:4px;
-
-    margin:1rem auto 3rem;
-
-    border-radius:999px;
-
-    background:linear-gradient(
-        90deg,
-        var(--color-primary),
-        var(--color-secondary)
-    );
-
-}
-
-/* ===================================================================
-   21. BADGE
-=================================================================== */
-
-.badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:.5rem;
-
-    padding:.45rem .9rem;
-
-    border-radius:999px;
-
-    background:#DBEAFE;
-
-    color:var(--color-primary-dark);
-
-    font-size:.85rem;
-
-    font-weight:600;
-
-}
-
-/* ===================================================================
-   22. SHADOW UTILITIES
-=================================================================== */
-
-.shadow-sm{
-
-    box-shadow:var(--shadow-sm);
-
-}
-
-.shadow-md{
-
-    box-shadow:var(--shadow-md);
-
-}
-
-.shadow-lg{
-
-    box-shadow:var(--shadow-lg);
-
-}
-
-/* ===================================================================
-   END OF PART 3
-=================================================================== */
-/* ===================================================================
-   23. RESPONSIVE DESIGN
-=================================================================== */
-
-@media (max-width:1023px){
-
-    .menu{
-        gap:1rem;
-    }
-
-    .cards{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-}
-
-@media (max-width:768px){
-
-    section{
-        padding:4rem 1.25rem;
     }
 
     .navbar{
 
-        padding:0 1rem;
-        flex-wrap:wrap;
-        height:auto;
-        min-height:var(--navbar-height);
+        display:none;
+
+        width:100%;
 
     }
 
-    .menu{
+    .navbar.active{
 
-        width:100%;
-        justify-content:center;
+        display:block;
+
+        margin-top:20px;
+
+    }
+
+    .nav-menu{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .header .container{
+
         flex-wrap:wrap;
-        gap:.75rem;
-
-        padding:1rem 0;
 
     }
 
     .hero{
 
-        min-height:auto;
-        padding-top:8rem;
-        padding-bottom:5rem;
+        padding:80px 0;
 
     }
 
-    .hero-buttons{
+    .hero h1{
 
-        flex-direction:column;
-        width:100%;
-
-    }
-
-    .btn{
-
-        width:100%;
-
-    }
-
-    .cards{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .timeline{
-
-        grid-template-columns:1fr;
+        font-size:2.2rem;
 
     }
 
 }
 
-@media (min-width:1400px){
+/* Active Navigation */
 
-    :root{
+.nav-menu a.active{
 
-        --container-width:1320px;
+    color:var(--primary);
 
-    }
-
-}
-
-/* ===================================================================
-   24. ANIMATIONS
-=================================================================== */
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-        transform:translateY(24px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateY(0);
-
-    }
+    font-weight:600;
 
 }
-
-@keyframes float{
-
-    0%,100%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-}
-
-.fade-up{
-
-    animation:fadeUp .8s ease both;
-
-}
-
-.float{
-
-    animation:float 6s ease-in-out infinite;
-
-}
-
-/* ===================================================================
-   25. ACCESSIBILITY
-=================================================================== */
-
-:focus-visible{
-
-    outline:3px solid var(--color-secondary);
-    outline-offset:3px;
-
-}
-
-::selection{
-
-    background:var(--color-primary);
-    color:#fff;
-
-}
-
-@media (prefers-reduced-motion:reduce){
-
-    *{
-
-        animation:none !important;
-        transition:none !important;
-        scroll-behavior:auto !important;
-
-    }
-
-}
-
-/* ===================================================================
-   26. SCROLLBAR
-=================================================================== */
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#EDF2F7;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--color-primary);
-    border-radius:999px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:var(--color-primary-dark);
-
-}
-
-/* ===================================================================
-   27. DARK THEME FOUNDATION
-=================================================================== */
-
-[data-theme="dark"]{
-
-    --color-background:#0F172A;
-    --color-surface:#1E293B;
-
-    --color-text:#F8FAFC;
-    --color-text-light:#CBD5E1;
-
-    --color-border:#334155;
-
-}
-
-[data-theme="dark"] body{
-
-    background:var(--color-background);
-    color:var(--color-text);
-
-}
-
-[data-theme="dark"] .card,
-[data-theme="dark"] .surface,
-[data-theme="dark"] #architecture pre,
-[data-theme="dark"] #roadmap pre{
-
-    background:var(--color-surface);
-    color:var(--color-text);
-
-}
-
-[data-theme="dark"] footer{
-
-    background:#020617;
-
-}
-
-/* ===================================================================
-   28. PRINT
-=================================================================== */
-
-@media print{
-
-    .navbar,
-    .hero-buttons{
-
-        display:none;
-
-    }
-
-    body{
-
-        background:#fff;
-        color:#000;
-
-    }
-
-}
-
-/* ===================================================================
-   29. UTILITIES
-=================================================================== */
-
-.hidden{
-
-    display:none !important;
-
-}
-
-.visually-hidden{
-
-    position:absolute;
-    width:1px;
-    height:1px;
-    margin:-1px;
-    padding:0;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-    white-space:nowrap;
-    border:0;
-
-}
-
-.w-100{
-
-    width:100%;
-
-}
-
-.text-primary{
-
-    color:var(--color-primary);
-
-}
-
-.bg-primary{
-
-    background:var(--color-primary);
-    color:#fff;
-
-}
-
-.rounded{
-
-    border-radius:var(--radius-md);
-
-}
-
-/* ===================================================================
-   END OF FILE
-
-   Project  : iRAM
-   File     : styles.css
-   Version  : 1.0.0
-   Status   : Production Foundation
-
-=================================================================== */

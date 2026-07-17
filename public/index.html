@@ -3,74 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="iRAM - Intelligent Research Administration & Management">
-    <meta name="author" content="iRAM Project Team">
 
-    <title>Welcome to the Universe of iRAM</title>
+    <title>iRAM Experience</title>
+    <meta name="description" content="iRAM Experience - Research Administration & Management Platform">
+    <meta name="author" content="SolarXtr">
+
+    <link rel="icon" href="assets/icons/favicon.ico">
 
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 
-<header class="hero">
+<header id="header" class="header">
 
-    <nav class="navbar">
+    <div class="container">
 
-        <div class="logo">
-            <a href="#">iRAM</a>
-        </div>
+        <a href="#" class="logo">
+            <span>iRAM</span>
+        </a>
 
-        <ul class="menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#journey">Journey</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#modules">Modules</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
-            <li><a href="#docs">Docs</a></li>
-        </ul>
+        <nav id="navbar" class="navbar">
 
-    </nav>
+            <ul class="nav-menu">
 
-    <div class="hero-content">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#documentation">Docs</a></li>
 
-        <h1>🌌 Welcome to the Universe of iRAM</h1>
+            </ul>
 
-        <p>
-            Transforming Research Administration
-            into Organizational Intelligence
-        </p>
+        </nav>
 
-        <div class="hero-buttons">
+        <button
+            id="menuToggle"
+            class="menu-toggle"
+            aria-label="Toggle Navigation">
 
-            <a href="#about" class="btn btn-primary">
-                Explore
-            </a>
+            ☰
 
-            <a href="https://github.com/SolarXtr/iram-experience"
-               class="btn btn-secondary"
-               target="_blank">
-                GitHub
-            </a>
-
-        </div>
+        </button>
 
     </div>
 
 </header>
 
-<section id="about">
+<main>
+
+<section id="hero" class="hero">
 
     <div class="container">
 
-        <h2>About iRAM</h2>
+        <h1>iRAM Experience</h1>
 
         <p>
 
-            iRAM is an Intelligent Research Administration &
-            Management Platform designed to preserve organizational
-            knowledge, improve research administration,
-            and empower executive decision-making.
+            Research Administration &
+            Management Platform
+
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#about" class="btn btn-primary">
+                Get Started
+            </a>
+
+            <a
+                href="https://github.com/SolarXtr/iram-experience"
+                target="_blank"
+                class="btn btn-secondary">
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <h2>About</h2>
+
+        <p>
+
+            iRAM Experience is an open foundation
+            for Research Administration and
+            Management Information Systems.
 
         </p>
 
@@ -78,89 +104,50 @@
 
 </section>
 
-<section id="journey">
-
-    <div class="container">
-
-        <h2>Journey</h2>
-
-        <div class="timeline">
-
-            <div>Foundation</div>
-            <div>Experience</div>
-            <div>Platform</div>
-            <div>Integration</div>
-            <div>Intelligence</div>
-            <div>Reference Model</div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section id="architecture">
+<section id="architecture" class="section">
 
     <div class="container">
 
         <h2>Architecture</h2>
 
-<pre>
-
-Vision
-   │
-Business
-   │
-Knowledge
-   │
-Technology
-   │
-Experience
-   │
-Organization
-
-</pre>
-
-    </div>
-
-</section>
-
-<section id="modules">
-
-    <div class="container">
-
-        <h2>Platform Modules</h2>
-
         <div class="cards">
 
             <article class="card">
-                <h3>Research</h3>
-                <p>Research Lifecycle Management</p>
+
+                <h3>Foundation</h3>
+
+                <p>
+
+                    Repository, Documentation,
+                    Standards
+
+                </p>
+
             </article>
 
             <article class="card">
-                <h3>Funding</h3>
-                <p>Research Funding Administration</p>
+
+                <h3>Frontend</h3>
+
+                <p>
+
+                    HTML, CSS, JavaScript
+
+                </p>
+
             </article>
 
             <article class="card">
-                <h3>Publication</h3>
-                <p>Publication & Citation Management</p>
-            </article>
 
-            <article class="card">
-                <h3>Ethics</h3>
-                <p>Research Ethics Workflow</p>
-            </article>
+                <h3>Future</h3>
 
-            <article class="card">
-                <h3>Analytics</h3>
-                <p>Executive Dashboard</p>
-            </article>
+                <p>
 
-            <article class="card">
-                <h3>AI</h3>
-                <p>AI-powered Knowledge Assistant</p>
+                    RMIS, Dashboard,
+                    AI Assistant
+
+                </p>
+
             </article>
 
         </div>
@@ -169,33 +156,31 @@ Organization
 
 </section>
 
-<section id="roadmap">
+<section id="roadmap" class="section">
 
     <div class="container">
 
         <h2>Roadmap</h2>
 
-<pre>
+        <ul class="timeline">
 
-Foundation      ██████████
+            <li>Foundation</li>
 
-Experience      ████░░░░░░
+            <li>Frontend</li>
 
-Platform        ░░░░░░░░░░
+            <li>Components</li>
 
-Integration     ░░░░░░░░░░
+            <li>Documentation Portal</li>
 
-Intelligence    ░░░░░░░░░░
+            <li>RMIS Experience</li>
 
-Reference Model ░░░░░░░░░░
-
-</pre>
+        </ul>
 
     </div>
 
 </section>
 
-<section id="docs">
+<section id="documentation" class="section">
 
     <div class="container">
 
@@ -203,39 +188,48 @@ Reference Model ░░░░░░░░░░
 
         <p>
 
-            Architecture, Standards,
-            Governance,
-            Development Plans,
-            Executive Overview,
-            and Knowledge Repository.
+            Explore project documentation
+            available in the GitHub repository.
 
         </p>
+
+        <a
+            href="https://github.com/SolarXtr/iram-experience/tree/master/docs"
+            target="_blank"
+            class="btn btn-primary">
+
+            View Documentation
+
+        </a>
 
     </div>
 
 </section>
 
-<footer>
+</main>
+
+<footer class="footer">
 
     <div class="container">
 
-        <h2>The Universe of iRAM</h2>
-
         <p>
 
-            Every Atom of the Universe of iRAM is You.
+            © 2026 iRAM Experience
 
         </p>
-
-        <small>
-
-            © 2026 iRAM Project
-
-        </small>
 
     </div>
 
 </footer>
+
+<button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to Top">
+
+    ↑
+
+</button>
 
 <script src="assets/js/app.js"></script>
 
