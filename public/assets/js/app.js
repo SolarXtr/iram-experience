@@ -40,7 +40,8 @@ const App = {
 
             this.menuToggle.addEventListener("click", () => {
 
-                this.navbar.classList.toggle("active");
+                const isActive = this.navbar.classList.toggle("active");
+                this.menuToggle.setAttribute("aria-expanded", isActive);
 
             });
 
@@ -60,13 +61,17 @@ const App = {
 
         });
 
+        let isScrolling = false;
         window.addEventListener("scroll", () => {
-
-            this.backToTop();
-
-            this.highlightMenu();
-
-        });
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    this.backToTop();
+                    this.highlightMenu();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }, { passive: true });
 
         if (this.backButton) {
 

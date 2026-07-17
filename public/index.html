@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>iRAM Experience</title>
-    <meta name="description" content="iRAM Experience - Research Administration & Management Platform">
+    <!-- SEO Meta Tags -->
+    <title>iRAM Experience | Research Administration & Management</title>
+    <meta name="description" content="iRAM Experience is an open foundation and platform for Research Administration and Management Information Systems, focusing on digital transformation and organizational intelligence.">
+    <meta name="keywords" content="iRAM, Research Administration, RMIS, Institutional Memory, SolarXtr">
     <meta name="author" content="SolarXtr">
 
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iram-experience.pages.dev/">
+    <meta property="og:title" content="iRAM Experience | Research Administration & Management">
+    <meta property="og:description" content="iRAM Experience is an open foundation and platform for Research Administration and Management Information Systems.">
+    <meta property="og:image" content="https://iram-experience.pages.dev/assets/images/og-image.png">
+
     <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="canonical" href="https://iram-experience.pages.dev/">
 
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -23,15 +33,15 @@
             <span>iRAM</span>
         </a>
 
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar" aria-label="Main Navigation">
 
-            <ul class="nav-menu">
+            <ul class="nav-menu" role="menubar">
 
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#architecture">Architecture</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#documentation">Docs</a></li>
+                <li role="none"><a role="menuitem" href="#hero">Home</a></li>
+                <li role="none"><a role="menuitem" href="#about">About</a></li>
+                <li role="none"><a role="menuitem" href="#architecture">Architecture</a></li>
+                <li role="none"><a role="menuitem" href="#roadmap">Roadmap</a></li>
+                <li role="none"><a role="menuitem" href="#documentation">Docs</a></li>
 
             </ul>
 
@@ -40,7 +50,9 @@
         <button
             id="menuToggle"
             class="menu-toggle"
-            aria-label="Toggle Navigation">
+            aria-label="Toggle Navigation"
+            aria-expanded="false"
+            aria-controls="navbar">
 
             ☰
 
