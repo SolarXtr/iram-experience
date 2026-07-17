@@ -1,14 +1,14 @@
-------------------------
-Title: Documentation Index
-Document ID: IRAM-DOC-023
-Version: 1.0.0
-Status: Active
-Project: iRAM (Intelligent Research Administration & Management)
-Phase: Experience
-Created: 2026-07-10
-Last Updated: 2026-07-10
-Classification: Public
-----------------------
+| Metadata | Value |
+|----------|-------|
+| Document ID | IRAM-DOC-023 |
+| Title | Documentation Index |
+| Version | 1.0.0 |
+| Status | Active |
+| Project | iRAM (Intelligent Research Administration & Management) |
+| Phase | Experience |
+| Created | 2026-07-10 |
+| Last Updated | 2026-07-10 |
+| Classification | Public |
 
 # 📚 Documentation Index
 
