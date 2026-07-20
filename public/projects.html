@@ -10,37 +10,9 @@
 </head>
 <body>
     <div id="app">
-        <!-- Sidebar -->
-        <aside class="sidebar" aria-label="Side Navigation">
-            <div class="sidebar-header"><h2>RAM-U</h2></div>
-            <ul class="sidebar-nav">
-                <li><a href="dashboard.html">Overview</a></li>
-                <li><a href="projects.html" class="active">Research Projects</a></li>
-                <li><a href="funding.html">Funding & Grants</a></li>
-                <li><a href="publications.html">Publications & Outputs</a></li>
-                <li><a href="conferences.html">Conferences & Presentations</a></li>
-                <li><a href="researchers.html">Researchers Directory</a></li>
-                <li><hr></li>
-                <li><a href="#reports">Analytics</a></li>
-                <li><a href="#settings">System Settings</a></li>
-            </ul>
-        </aside>
-
-        <!-- Navbar -->
-        <header class="navbar rmis-navbar">
-            <div class="navbar-container">
-                <a href="dashboard.html" class="navbar-brand">
-                    <img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;">
-                </a>
-                <div class="navbar-actions" style="display:flex; align-items:center; gap:16px;">
-                    <button class="btn-icon">🔔</button>
-                    <div class="user-profile-menu">
-                        <span class="user-name" style="font-weight:500;">Loading...</span>
-                        <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!-- Layout Placeholders -->
+        <div id="sidebar-placeholder"></div>
+        <div id="navbar-placeholder"></div>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -100,6 +72,7 @@
             </div>
         </main>
     </div>
+    <script src="assets/js/layout.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/components.js"></script>
 </body>
