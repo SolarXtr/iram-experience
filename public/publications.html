@@ -66,17 +66,11 @@
                                 <th>Title</th>
                                 <th>Authors</th>
                                 <th>Journal</th>
-                                <th>Citations</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>2026</td>
-                                <td>AI Diagnostics in Radiology</td>
-                                <td>Medical S., Health S.</td>
-                                <td>Journal of Med Tech</td>
-                                <td>14</td>
-                            </tr>
+                        <tbody id="publications-table-body">
+                            <tr><td colspan="5" style="text-align:center; padding:20px;">Loading publications...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -84,6 +78,47 @@
         </main>
     </div>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const tableBody = document.getElementById('publications-table-body');
+            try {
+                const publications = await window.api.publications.getAll();
+                
+                if (publications.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px;">No publications found</td></tr>';
+                    return;
+                }
+
+                tableBody.innerHTML = ''; // clear loading
+                publications.forEach(pub => {
+                    const tr = document.createElement('tr');
+                    
+                    // Parse authors (assuming JSON string from DB)
+                    let authorsStr = 'Unknown';
+                    try {
+                        const authorsArr = JSON.parse(pub.authors);
+                        authorsStr = authorsArr.map(a => a.name).join(', ');
+                    } catch(e) {}
+
+                    // Get year from createdAt or default
+                    const year = pub.createdAt ? new Date(pub.createdAt).getFullYear() : 'N/A';
+
+                    tr.innerHTML = `
+                        <td>${year}</td>
+                        <td>${pub.title || 'Untitled'}</td>
+                        <td>${authorsStr}</td>
+                        <td>${pub.journal || 'Unknown Journal'}</td>
+                        <td><span class="badge" style="background:#17a2b8; color:white; padding:4px 8px; border-radius:4px;">${pub.status || 'Published'}</span></td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error(err);
+                tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</td></tr>';
+            }
+        });
+    </script>
 </body>
 </html>

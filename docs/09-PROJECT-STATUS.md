@@ -22,7 +22,7 @@ Last Updated: 2026-07-10
 | ------------ | -------------- | :------: |
 | Foundation   | ✅ Completed    |   100%   |
 | Experience   | ✅ Completed    |   100%   |
-| Platform     | 🚀 In Progress |    20%    |
+| Platform     | 🚀 In Progress |    40%    |
 | Intelligence | ⏳ Planned      |    0%    |
 | Legacy       | ⏳ Planned      |    0%    |
 
@@ -233,19 +233,20 @@ Release : v0.7.0-rc1
 
 ## Next Sprint
 
-Sprint A011: Core Modules
+Sprint A012: Data Integration (Part 2)
 
-- Research Projects Interface
-- Researchers Directory Interface
-- Funding & Grants Interface
-- Publications & Outputs Interface
+- Backend API for Research Projects (`iram-backend`)
+- Backend API for Funding & Grants (`iram-backend`)
+- Backend API for Conferences (`iram-backend`)
+- Frontend Fetch Logic Integration (`iram-experience`)
 
 ## Overall Progress
 
 | Area | Status |
 |------|--------|
 | Design System v2 | ✅ Complete |
-| SPA Layout Framework | ✅ Complete |
-| Dashboard Prototype | ✅ Complete |
-| Authentication Mock | ✅ Complete |
-| Core Modules Prep | ✅ Ready |
+| Core Modules UI | ✅ Complete |
+| API Client Utility | ✅ Complete |
+| Researchers Data Link | ✅ Complete |
+| Publications Data Link | ✅ Complete |
+| Projects & Funding APIs | 🚀 In Progress |

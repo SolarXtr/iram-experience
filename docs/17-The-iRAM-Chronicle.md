@@ -138,5 +138,7 @@ Today marked the transition from a promotional landing page to a functional web 
 - **Sprint A008.2 (Design System v2)**: Created the foundational Component Library (UI Kit) to ensure reusable, consistent frontend elements (Navbar, Sidebar, Card, Table).
 - **Sprint A008.4 & A009 (Dashboard Layout Framework)**: Introduced a Single Page Application (SPA) CSS Grid layout, successfully rendering the first interactive Dashboard prototype.
 - **Sprint A010 (Authentication Prototype)**: Built a frontend mock session manager (`auth.js`) and a dedicated `login.html` page to simulate Role-Based Access Control (RBAC), restricting unauthorized access to the Dashboard.
+- **Sprint A011 (Core Modules)**: Created UI interfaces for Research Projects, Researchers, Funding, Publications, and Conferences, fully integrated with RAM-U branding.
+- **Sprint A012 (Data Integration - Part 1)**: Transitioned the platform from a static mockup to a dynamic application by integrating `iram-experience` with `iram-backend` (Cloudflare Workers/D1). The Researchers Directory and Publications modules now successfully render live data.
 
-The architecture is now securely positioned to begin constructing the Core Modules (Sprint A011), starting with the Research Projects interface.
+The architecture is now securely positioned to begin constructing the remaining Backend APIs (Sprint A012 Part 2).

@@ -56,37 +56,50 @@
                 </div>
             </div>
 
-            <div class="dashboard-grid">
-                <!-- Researcher Card 1 -->
-                <div class="card">
-                    <div class="card-body" style="text-align:center;">
-                        <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto;"></div>
-                        <h3 class="card-title" style="margin-bottom:4px;">Dr. Somchai Medical</h3>
-                        <p class="text-muted">Department of Surgery</p>
-                        <div style="margin-top:16px; display:flex; justify-content:space-around;">
-                            <div><strong>12</strong><br><small>Projects</small></div>
-                            <div><strong>45</strong><br><small>Publications</small></div>
-                            <div><strong>18</strong><br><small>h-index</small></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Researcher Card 2 -->
-                <div class="card">
-                    <div class="card-body" style="text-align:center;">
-                        <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto;"></div>
-                        <h3 class="card-title" style="margin-bottom:4px;">Prof. Somsri Health</h3>
-                        <p class="text-muted">Department of Medicine</p>
-                        <div style="margin-top:16px; display:flex; justify-content:space-around;">
-                            <div><strong>8</strong><br><small>Projects</small></div>
-                            <div><strong>120</strong><br><small>Publications</small></div>
-                            <div><strong>32</strong><br><small>h-index</small></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="dashboard-grid" id="researchers-grid">
+                <div style="text-align:center; padding:40px; grid-column:1/-1;">Loading researchers...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('researchers-grid');
+            try {
+                const researchers = await window.api.researchers.getAll();
+                
+                if (researchers.length === 0) {
+                    grid.innerHTML = '<div style="text-align:center; padding:40px; grid-column:1/-1;">No researchers found</div>';
+                    return;
+                }
+
+                grid.innerHTML = ''; // clear loading
+                researchers.forEach(res => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="card-body" style="text-align:center;">
+                            <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto; display:flex; align-items:center; justify-content:center; font-size:24px; color:#555;">
+                                ${res.name.charAt(0)}
+                            </div>
+                            <h3 class="card-title" style="margin-bottom:4px;">${res.name}</h3>
+                            <p class="text-muted">${res.department || 'Researcher'}</p>
+                            <div style="margin-top:16px; display:flex; justify-content:space-around;">
+                                <div><strong>-</strong><br><small>Projects</small></div>
+                                <div><strong>-</strong><br><small>Publications</small></div>
+                                <div><span style="color:green; font-weight:bold;">${res.status || 'Active'}</span></div>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = '<div style="text-align:center; padding:40px; grid-column:1/-1; color:red;">Failed to load data. Ensure backend is running.</div>';
+            }
+        });
+    </script>
 </body>
 </html>
