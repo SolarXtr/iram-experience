@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferences | RAM-U</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <div id="app">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h2>RAM-U</h2></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="projects.html">Research Projects</a></li>
+                <li><a href="funding.html">Funding & Grants</a></li>
+                <li><a href="publications.html">Publications & Outputs</a></li>
+                <li><a href="conferences.html" class="active">Conferences & Presentations</a></li>
+                <li><a href="researchers.html">Researchers Directory</a></li>
+                <li><hr></li>
+                <li><a href="#reports">Analytics</a></li>
+                <li><a href="#settings">System Settings</a></li>
+            </ul>
+        </aside>
+        <header class="navbar rmis-navbar">
+            <div class="navbar-container">
+                <a href="dashboard.html" class="navbar-brand"><img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;"></a>
+                <div class="navbar-actions">
+                    <div class="user-profile-menu">
+                        <span class="user-name">Loading...</span>
+                        <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h1>Conferences & Presentations</h1>
+                    <p class="text-muted">Track national and international academic presentations.</p>
+                </div>
+                <button class="btn btn-primary">+ Log Presentation</button>
+            </header>
+
+            <!-- Search & Filter Bar -->
+            <div class="card" style="margin-bottom: 24px; padding: 16px;">
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <input type="text" class="form-control" placeholder="Search conferences..." style="flex:1;">
+                    <select class="form-control" style="width:200px;">
+                        <option value="">All Levels</option>
+                        <option value="national">National</option>
+                        <option value="international">International</option>
+                    </select>
+                    <button class="btn btn-outline">Filter</button>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Conference Name</th>
+                                <th>Presenter</th>
+                                <th>Level</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-08-15</td>
+                                <td>International Medical Congress</td>
+                                <td>Dr. Somchai Medical</td>
+                                <td><span class="badge badge-primary" style="background:#007bff; color:white; padding:4px 8px; border-radius:4px;">International</span></td>
+                                <td>Tokyo, Japan</td>
+                            </tr>
+                            <tr>
+                                <td>2026-09-01</td>
+                                <td>Thailand Health Symposium</td>
+                                <td>Prof. Somsri Health</td>
+                                <td><span class="badge badge-secondary" style="background:#6c757d; color:white; padding:4px 8px; border-radius:4px;">National</span></td>
+                                <td>Bangkok, Thailand</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researchers Directory | RAM-U</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <div id="app">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h2>RAM-U</h2></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="projects.html">Research Projects</a></li>
+                <li><a href="funding.html">Funding & Grants</a></li>
+                <li><a href="publications.html">Publications & Outputs</a></li>
+                <li><a href="conferences.html">Conferences & Presentations</a></li>
+                <li><a href="researchers.html" class="active">Researchers Directory</a></li>
+                <li><hr></li>
+                <li><a href="#reports">Analytics</a></li>
+                <li><a href="#settings">System Settings</a></li>
+            </ul>
+        </aside>
+        <header class="navbar rmis-navbar">
+            <div class="navbar-container">
+                <a href="dashboard.html" class="navbar-brand"><img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;"></a>
+                <div class="navbar-actions">
+                    <div class="user-profile-menu">
+                        <span class="user-name">Loading...</span>
+                        <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <header style="margin-bottom: 24px;">
+                <h1>Researchers Directory</h1>
+                <p class="text-muted">Database of academic and clinical researchers.</p>
+            </header>
+
+            <!-- Search & Filter Bar -->
+            <div class="card" style="margin-bottom: 24px; padding: 16px;">
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <input type="text" class="form-control" placeholder="Search by name, expertise, or Scopus ID..." style="flex:1;">
+                    <select class="form-control" style="width:200px;">
+                        <option value="">All Departments</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="surgery">Surgery</option>
+                        <option value="pediatrics">Pediatrics</option>
+                    </select>
+                    <button class="btn btn-outline">Filter</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Researcher Card 1 -->
+                <div class="card">
+                    <div class="card-body" style="text-align:center;">
+                        <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto;"></div>
+                        <h3 class="card-title" style="margin-bottom:4px;">Dr. Somchai Medical</h3>
+                        <p class="text-muted">Department of Surgery</p>
+                        <div style="margin-top:16px; display:flex; justify-content:space-around;">
+                            <div><strong>12</strong><br><small>Projects</small></div>
+                            <div><strong>45</strong><br><small>Publications</small></div>
+                            <div><strong>18</strong><br><small>h-index</small></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Researcher Card 2 -->
+                <div class="card">
+                    <div class="card-body" style="text-align:center;">
+                        <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto;"></div>
+                        <h3 class="card-title" style="margin-bottom:4px;">Prof. Somsri Health</h3>
+                        <p class="text-muted">Department of Medicine</p>
+                        <div style="margin-top:16px; display:flex; justify-content:space-around;">
+                            <div><strong>8</strong><br><small>Projects</small></div>
+                            <div><strong>120</strong><br><small>Publications</small></div>
+                            <div><strong>32</strong><br><small>h-index</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>

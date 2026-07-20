@@ -2,30 +2,16 @@
 <header class="navbar rmis-navbar" aria-label="Top Navigation">
     <div class="navbar-container">
         <a href="dashboard.html" class="navbar-brand">
-            <span class="brand-logo">iRAM</span>
-            <span class="brand-text">RMIS</span>
+            <img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;">
         </a>
         
-        <div class="navbar-actions">
-            <!-- Notifications -->
-            <button class="btn-icon" aria-label="Notifications">
+        <div class="navbar-actions" style="display:flex; align-items:center; gap:16px;">
+            <button class="btn-icon" aria-label="Notifications" style="background:none; border:none; cursor:pointer;">
                 <i class="icon-bell">🔔</i>
-                <span class="badge badge-primary">3</span>
             </button>
-            
-            <!-- User Profile -->
             <div class="user-profile-menu">
-                <button class="btn-user" aria-haspopup="true" aria-expanded="false">
-                    <img src="assets/images/avatar-placeholder.png" alt="User Avatar" class="user-avatar">
-                    <span class="user-name">Dr. Researcher</span>
-                </button>
-                <!-- Dropdown menu (hidden by default) -->
-                <ul class="dropdown-menu">
-                    <li><a href="profile.html">My Profile</a></li>
-                    <li><a href="settings.html">Settings</a></li>
-                    <li><hr></li>
-                    <li><a href="logout.html" class="text-danger">Logout</a></li>
-                </ul>
+                <span class="user-name" style="font-weight:500;">Loading...</span>
+                <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
             </div>
         </div>
     </div>

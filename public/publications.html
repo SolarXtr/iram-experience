@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | RAM-U</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <div id="app">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h2>RAM-U</h2></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="projects.html">Research Projects</a></li>
+                <li><a href="funding.html">Funding & Grants</a></li>
+                <li><a href="publications.html" class="active">Publications & Outputs</a></li>
+                <li><a href="conferences.html">Conferences & Presentations</a></li>
+                <li><a href="researchers.html">Researchers Directory</a></li>
+                <li><hr></li>
+                <li><a href="#reports">Analytics</a></li>
+                <li><a href="#settings">System Settings</a></li>
+            </ul>
+        </aside>
+        <header class="navbar rmis-navbar">
+            <div class="navbar-container">
+                <a href="dashboard.html" class="navbar-brand"><img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;"></a>
+                <div class="navbar-actions">
+                    <div class="user-profile-menu">
+                        <span class="user-name">Loading...</span>
+                        <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h1>Publications & Outputs</h1>
+                    <p class="text-muted">Repository of academic articles and research outputs.</p>
+                </div>
+                <button class="btn btn-primary">+ Add Publication</button>
+            </header>
+
+            <div class="card" style="margin-bottom: 24px; padding: 16px;">
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <input type="text" class="form-control" placeholder="Search by title, author, or DOI..." style="flex:1;">
+                    <select class="form-control" style="width:200px;">
+                        <option value="">All Years</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                    </select>
+                    <button class="btn btn-outline">Filter</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Title</th>
+                                <th>Authors</th>
+                                <th>Journal</th>
+                                <th>Citations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026</td>
+                                <td>AI Diagnostics in Radiology</td>
+                                <td>Medical S., Health S.</td>
+                                <td>Journal of Med Tech</td>
+                                <td>14</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>

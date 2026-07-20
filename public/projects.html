@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Projects | RAM-U</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <aside class="sidebar" aria-label="Side Navigation">
+            <div class="sidebar-header"><h2>RAM-U</h2></div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">Overview</a></li>
+                <li><a href="projects.html" class="active">Research Projects</a></li>
+                <li><a href="funding.html">Funding & Grants</a></li>
+                <li><a href="publications.html">Publications & Outputs</a></li>
+                <li><a href="conferences.html">Conferences & Presentations</a></li>
+                <li><a href="researchers.html">Researchers Directory</a></li>
+                <li><hr></li>
+                <li><a href="#reports">Analytics</a></li>
+                <li><a href="#settings">System Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Navbar -->
+        <header class="navbar rmis-navbar">
+            <div class="navbar-container">
+                <a href="dashboard.html" class="navbar-brand">
+                    <img src="assets/images/ram-u-logo.png" alt="RAM-U Logo" style="height: 40px; object-fit: contain;">
+                </a>
+                <div class="navbar-actions" style="display:flex; align-items:center; gap:16px;">
+                    <button class="btn-icon">🔔</button>
+                    <div class="user-profile-menu">
+                        <span class="user-name" style="font-weight:500;">Loading...</span>
+                        <a href="#" id="logoutBtn" style="margin-left: 12px; color: #e74c3c; font-size: 0.9rem; text-decoration: none;">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header style="margin-bottom: 24px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h1>Research Projects</h1>
+                    <p class="text-muted">Manage ongoing and completed research initiatives.</p>
+                </div>
+                <button class="btn btn-primary">+ New Project</button>
+            </header>
+
+            <!-- Search & Filter Bar -->
+            <div class="card" style="margin-bottom: 24px; padding: 16px;">
+                <div style="display:flex; gap:16px; align-items:center;">
+                    <input type="text" class="form-control" placeholder="Search projects by title or PI..." style="flex:1;">
+                    <select class="form-control" style="width:200px;">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                    <button class="btn btn-outline">Filter</button>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Project ID</th>
+                                <th>Title</th>
+                                <th>Principal Investigator</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PRJ-2026-101</td>
+                                <td>Advanced Nanomaterials for Drug Delivery</td>
+                                <td>Dr. Naresuan</td>
+                                <td><span style="color:green; font-weight:bold;">Active</span></td>
+                                <td><button class="btn btn-sm">Manage</button></td>
+                            </tr>
+                            <tr>
+                                <td>PRJ-2026-099</td>
+                                <td>AI Diagnostics in Radiology</td>
+                                <td>Dr. Medical</td>
+                                <td><span style="color:blue; font-weight:bold;">Completed</span></td>
+                                <td><button class="btn btn-sm">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>
