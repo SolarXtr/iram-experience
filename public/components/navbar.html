@@ -1,0 +1,32 @@
+<!-- RMIS Navbar Component -->
+<header class="navbar rmis-navbar" aria-label="Top Navigation">
+    <div class="navbar-container">
+        <a href="dashboard.html" class="navbar-brand">
+            <span class="brand-logo">iRAM</span>
+            <span class="brand-text">RMIS</span>
+        </a>
+        
+        <div class="navbar-actions">
+            <!-- Notifications -->
+            <button class="btn-icon" aria-label="Notifications">
+                <i class="icon-bell">🔔</i>
+                <span class="badge badge-primary">3</span>
+            </button>
+            
+            <!-- User Profile -->
+            <div class="user-profile-menu">
+                <button class="btn-user" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/images/avatar-placeholder.png" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Dr. Researcher</span>
+                </button>
+                <!-- Dropdown menu (hidden by default) -->
+                <ul class="dropdown-menu">
+                    <li><a href="profile.html">My Profile</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><hr></li>
+                    <li><a href="logout.html" class="text-danger">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
