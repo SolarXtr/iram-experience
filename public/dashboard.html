@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | iRAM RMIS</title>
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+    <!-- SPA Root Container -->
+    <div id="app">
+
+        <!-- Sidebar Component -->
+        <aside class="sidebar" aria-label="Side Navigation">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html" class="active">Overview</a></li>
+                <li><a href="#">Research Projects</a></li>
+                <li><a href="#">Funding & Grants</a></li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">Researchers Directory</a></li>
+                <li><hr></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">System Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Navbar Component -->
+        <header class="navbar rmis-navbar" aria-label="Top Navigation">
+            <div class="navbar-container">
+                <a href="dashboard.html" class="navbar-brand">
+                    <span class="brand-logo" style="color:var(--primary); font-weight:bold;">iRAM</span>
+                    <span class="brand-text">RMIS</span>
+                </a>
+                
+                <div class="navbar-actions" style="display:flex; align-items:center; gap:16px;">
+                    <button class="btn-icon" aria-label="Notifications" style="background:none; border:none; cursor:pointer;">
+                        <i class="icon-bell">🔔</i>
+                    </button>
+                    <div class="user-profile-menu">
+                        <span class="user-name" style="font-weight:500;">Dr. Researcher</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header style="margin-bottom: 24px;">
+                <h1>Executive Overview</h1>
+                <p class="text-muted">Welcome back to the iRAM Research Management Information System.</p>
+            </header>
+
+            <!-- KPI Cards Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Active Projects</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="kpi-metric" style="font-size:2rem; font-weight:bold; color:var(--primary);">
+                            124
+                        </div>
+                        <p class="text-muted" style="margin-top:8px;">+12% increase from last quarter.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Funding</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="kpi-metric" style="font-size:2rem; font-weight:bold; color:var(--secondary);">
+                            $4.2M
+                        </div>
+                        <p class="text-muted" style="margin-top:8px;">Across 38 active grants.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pending Approvals</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="kpi-metric" style="font-size:2rem; font-weight:bold; color:#e74c3c;">
+                            7
+                        </div>
+                        <p class="text-muted" style="margin-top:8px;">Require immediate attention.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Data Table Section -->
+            <div class="card" style="margin-top: 32px;">
+                <h3 class="card-title">Recent Activities</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Project Title</th>
+                                <th scope="col">Principal Investigator</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Budget</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RES-2026-001</td>
+                                <td>AI in Healthcare Diagnostics</td>
+                                <td>Dr. Alan Turing</td>
+                                <td><span style="color:green; font-weight:bold;">Active</span></td>
+                                <td>$150,000</td>
+                                <td><button class="btn" style="padding:4px 8px;">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>RES-2026-002</td>
+                                <td>Quantum Computing Materials</td>
+                                <td>Dr. Marie Curie</td>
+                                <td><span style="color:orange; font-weight:bold;">Pending Review</span></td>
+                                <td>$300,000</td>
+                                <td><button class="btn" style="padding:4px 8px;">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- JS Dependencies -->
+    <script src="assets/js/components.js"></script>
+</body>
+</html>
