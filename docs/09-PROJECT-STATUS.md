@@ -21,8 +21,8 @@ Last Updated: 2026-07-10
 | Phase        | Status         | Progress |
 | ------------ | -------------- | :------: |
 | Foundation   | ✅ Completed    |   100%   |
-| Experience   | 🚀 In Progress |    40%   |
-| Platform     | ⏳ Planned      |    0%    |
+| Experience   | ✅ Completed    |   100%   |
+| Platform     | 🚀 In Progress |    20%    |
 | Intelligence | ⏳ Planned      |    0%    |
 | Legacy       | ⏳ Planned      |    0%    |
 
@@ -233,20 +233,19 @@ Release : v0.7.0-rc1
 
 ## Next Sprint
 
-Sprint A008
+Sprint A011: Core Modules
 
-- Documentation Cleanup
-- Design System v2
-- Production UI
-- Production Readiness
-- RMIS Experience Foundation
+- Research Projects Interface
+- Researchers Directory Interface
+- Funding & Grants Interface
+- Publications & Outputs Interface
 
 ## Overall Progress
 
 | Area | Status |
 |------|--------|
-| Documentation | ✅ Complete |
-| Git Repository | ✅ Stable |
-| Frontend MVP | ✅ Complete |
-| Cloudflare Deployment | ✅ Active |
-| Sprint A008 Preparation | ✅ Ready |
+| Design System v2 | ✅ Complete |
+| SPA Layout Framework | ✅ Complete |
+| Dashboard Prototype | ✅ Complete |
+| Authentication Mock | ✅ Complete |
+| Core Modules Prep | ✅ Ready |
