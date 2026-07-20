@@ -27,42 +27,99 @@
                 <div style="display:flex; gap:16px; align-items:center;">
                     <input type="text" class="form-control" placeholder="Search funding sources..." style="flex:1;">
                     <select class="form-control" style="width:200px;">
-                        <option value="">All Types</option>
-                        <option value="internal">Internal Funding</option>
-                        <option value="external">External Funding</option>
+                        <option value="">All Statuses</option>
+                        <option value="ONGOING">Ongoing</option>
+                        <option value="COMPLETED">Completed</option>
+                        <option value="APPROVED">Approved</option>
+                        <option value="PROPOSED">Proposed</option>
                     </select>
                     <button class="btn btn-outline">Filter</button>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Source</th>
-                                <th>Type</th>
-                                <th>Allocated To</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>National Research Council</td>
-                                <td>External</td>
-                                <td>Advanced Nanomaterials</td>
-                                <td>$150,000</td>
-                                <td><span style="color:green; font-weight:bold;">Awarded</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card" id="funding-table-container">
+                <div style="text-align:center; padding:20px;">Loading funding data...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/layout.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script src="assets/js/datatable.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('funding-table-container');
+            const searchInput = document.querySelector('input[type="text"].form-control');
+            const statusFilter = document.querySelector('select.form-control');
+            
+            try {
+                const rawFunding = await window.api.funding.getAll();
+                if (rawFunding.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; padding:20px;">No funding data found</div>';
+                    return;
+                }
+
+                const processedData = rawFunding.map(f => {
+                    let color = 'gray';
+                    const s = (f.status || '').toUpperCase();
+                    if (s === 'ACTIVE' || s === 'ONGOING') color = 'green';
+                    else if (s === 'COMPLETED') color = 'blue';
+                    else if (s === 'APPROVED') color = 'purple';
+                    else if (s === 'PENDING' || s === 'PROPOSED') color = 'orange';
+
+                    return {
+                        ...f,
+                        displayStatus: f.status || 'Pending',
+                        color,
+                        formattedAmount: new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(f.amount || 0),
+                        formattedSpent: new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(f.budgetSpent || 0)
+                    };
+                });
+
+                const columns = [
+                    { key: 'projectTitle', label: 'Project / Allocated To' },
+                    { key: 'piName', label: 'Principal Investigator', render: (val) => val || 'Unknown' },
+                    { key: 'formattedAmount', label: 'Initial Budget' },
+                    { key: 'formattedSpent', label: 'Budget Spent' },
+                    { 
+                        key: 'displayStatus', 
+                        label: 'Status',
+                        render: (val, row) => `<span style="color:${row.color}; font-weight:bold;">${val}</span>`
+                    }
+                ];
+
+                const filterData = () => {
+                    const searchVal = searchInput.value.toLowerCase();
+                    const statusVal = statusFilter.value.toUpperCase();
+                    
+                    return processedData.filter(f => {
+                        const matchesSearch = !searchVal || 
+                            (f.projectTitle || '').toLowerCase().includes(searchVal) ||
+                            (f.piName || '').toLowerCase().includes(searchVal);
+                            
+                        const matchesStatus = !statusVal || (f.status || '').toUpperCase() === statusVal;
+                        
+                        return matchesSearch && matchesStatus;
+                    });
+                };
+
+                const dataTable = new InteractiveTable('funding-table-container', {
+                    columns,
+                    data: filterData(),
+                    pageSize: 25,
+                    defaultSort: 'projectTitle',
+                    defaultSortAsc: true
+                });
+                
+                searchInput.addEventListener('input', () => dataTable.setData(filterData()));
+                statusFilter.addEventListener('change', () => dataTable.setData(filterData()));
+
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<div style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</div>';
+            }
+        });
+    </script>
 </body>
 </html>

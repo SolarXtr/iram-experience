@@ -45,5 +45,14 @@ window.api = {
     },
     researchers: {
         getAll: () => fetchAPI('/api/researchers')
+    },
+    projects: {
+        getAll: () => fetchAPI('/api/projects')
+    },
+    funding: {
+        getAll: () => fetchAPI('/api/funding')
+    },
+    conferences: {
+        getAll: () => fetchAPI('/api/conferences')
     }
 };

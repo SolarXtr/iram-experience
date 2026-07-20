@@ -28,50 +28,99 @@
                 <div style="display:flex; gap:16px; align-items:center;">
                     <input type="text" class="form-control" placeholder="Search conferences..." style="flex:1;">
                     <select class="form-control" style="width:200px;">
-                        <option value="">All Levels</option>
-                        <option value="national">National</option>
-                        <option value="international">International</option>
+                        <option value="">All Types</option>
+                        <option value="ORAL">Oral Presentation</option>
+                        <option value="POSTER">Poster Presentation</option>
                     </select>
                     <button class="btn btn-outline">Filter</button>
                 </div>
             </div>
 
             <!-- Data Table -->
-            <div class="card">
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Conference Name</th>
-                                <th>Presenter</th>
-                                <th>Level</th>
-                                <th>Location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2026-08-15</td>
-                                <td>International Medical Congress</td>
-                                <td>Dr. Somchai Medical</td>
-                                <td><span class="badge badge-primary" style="background:#007bff; color:white; padding:4px 8px; border-radius:4px;">International</span></td>
-                                <td>Tokyo, Japan</td>
-                            </tr>
-                            <tr>
-                                <td>2026-09-01</td>
-                                <td>Thailand Health Symposium</td>
-                                <td>Prof. Somsri Health</td>
-                                <td><span class="badge badge-secondary" style="background:#6c757d; color:white; padding:4px 8px; border-radius:4px;">National</span></td>
-                                <td>Bangkok, Thailand</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card" id="conferences-table-container">
+                <div style="text-align:center; padding:20px;">Loading conferences...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/layout.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script src="assets/js/datatable.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('conferences-table-container');
+            const searchInput = document.querySelector('input[type="text"].form-control');
+            const typeFilter = document.querySelector('select.form-control');
+            
+            try {
+                const rawConferences = await window.api.conferences.getAll();
+                if (rawConferences.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; padding:20px;">No presentations found</div>';
+                    return;
+                }
+
+                const processedData = rawConferences.map(c => {
+                    let badgeColor = '#6c757d';
+                    if (c.type === 'ORAL') badgeColor = '#007bff';
+                    else if (c.type === 'POSTER') badgeColor = '#17a2b8';
+
+                    return {
+                        ...c,
+                        displayType: c.type || 'Unknown',
+                        displayStatus: c.status || 'Pending',
+                        badgeColor
+                    };
+                });
+
+                const columns = [
+                    { key: 'conference', label: 'Conference Name' },
+                    { key: 'title', label: 'Presentation Title' },
+                    { key: 'presenterName', label: 'Presenter', render: (val) => val || 'Unknown' },
+                    { 
+                        key: 'displayType', 
+                        label: 'Type',
+                        render: (val, row) => `<span class="badge" style="background:${row.badgeColor}; color:white; padding:4px 8px; border-radius:4px; font-size:0.85em;">${val}</span>`
+                    },
+                    { 
+                        key: 'displayStatus', 
+                        label: 'Status',
+                        render: (val) => `<span style="font-weight:500;">${val}</span>`
+                    }
+                ];
+
+                const filterData = () => {
+                    const searchVal = searchInput.value.toLowerCase();
+                    const typeVal = typeFilter.value.toUpperCase();
+                    
+                    return processedData.filter(c => {
+                        const matchesSearch = !searchVal || 
+                            (c.conference || '').toLowerCase().includes(searchVal) ||
+                            (c.title || '').toLowerCase().includes(searchVal) ||
+                            (c.presenterName || '').toLowerCase().includes(searchVal);
+                            
+                        const matchesType = !typeVal || (c.type || '').toUpperCase() === typeVal;
+                        
+                        return matchesSearch && matchesType;
+                    });
+                };
+
+                const dataTable = new InteractiveTable('conferences-table-container', {
+                    columns,
+                    data: filterData(),
+                    pageSize: 25,
+                    defaultSort: 'conference',
+                    defaultSortAsc: true
+                });
+                
+                searchInput.addEventListener('input', () => dataTable.setData(filterData()));
+                typeFilter.addEventListener('change', () => dataTable.setData(filterData()));
+
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<div style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</div>';
+            }
+        });
+    </script>
 </body>
 </html>

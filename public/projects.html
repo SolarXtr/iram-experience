@@ -39,41 +39,86 @@
             </div>
 
             <!-- Data Table -->
-            <div class="card">
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Project ID</th>
-                                <th>Title</th>
-                                <th>Principal Investigator</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>PRJ-2026-101</td>
-                                <td>Advanced Nanomaterials for Drug Delivery</td>
-                                <td>Dr. Naresuan</td>
-                                <td><span style="color:green; font-weight:bold;">Active</span></td>
-                                <td><button class="btn btn-sm">Manage</button></td>
-                            </tr>
-                            <tr>
-                                <td>PRJ-2026-099</td>
-                                <td>AI Diagnostics in Radiology</td>
-                                <td>Dr. Medical</td>
-                                <td><span style="color:blue; font-weight:bold;">Completed</span></td>
-                                <td><button class="btn btn-sm">View</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card" id="projects-table-container">
+                <div style="text-align:center; padding:20px;">Loading projects...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/layout.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script src="assets/js/datatable.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('projects-table-container');
+            const searchInput = document.querySelector('input[type="text"].form-control');
+            const statusFilter = document.querySelector('select.form-control');
+            
+            try {
+                const rawProjects = await window.api.projects.getAll();
+                if (rawProjects.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; padding:20px;">No projects found</div>';
+                    return;
+                }
+
+                const processedData = rawProjects.map(proj => {
+                    let color = 'gray';
+                    const s = (proj.status || '').toUpperCase();
+                    if (s === 'ACTIVE' || s === 'ONGOING') color = 'green';
+                    else if (s === 'COMPLETED') color = 'blue';
+                    else if (s === 'APPROVED') color = 'purple';
+                    else if (s === 'PENDING' || s === 'PROPOSED') color = 'orange';
+
+                    return {
+                        ...proj,
+                        displayStatus: proj.status || 'Pending',
+                        color
+                    };
+                });
+
+                const columns = [
+                    { key: 'id', label: 'ID', render: (val) => val.substring(0, 8) + '...' },
+                    { key: 'title', label: 'Title' },
+                    { key: 'piName', label: 'Principal Investigator', render: (val) => val || 'Unknown' },
+                    { 
+                        key: 'displayStatus', 
+                        label: 'Status',
+                        render: (val, row) => `<span style="color:${row.color}; font-weight:bold;">${val}</span>`
+                    }
+                ];
+
+                const filterData = () => {
+                    const searchVal = searchInput.value.toLowerCase();
+                    const statusVal = statusFilter.value.toLowerCase();
+                    
+                    return processedData.filter(proj => {
+                        const matchesSearch = !searchVal || 
+                            (proj.title || '').toLowerCase().includes(searchVal) ||
+                            (proj.piName || '').toLowerCase().includes(searchVal);
+                            
+                        const matchesStatus = !statusVal || (proj.status || '').toLowerCase() === statusVal;
+                        
+                        return matchesSearch && matchesStatus;
+                    });
+                };
+
+                const dataTable = new InteractiveTable('projects-table-container', {
+                    columns,
+                    data: filterData(),
+                    pageSize: 25,
+                    defaultSort: 'title',
+                    defaultSortAsc: true
+                });
+                
+                searchInput.addEventListener('input', () => dataTable.setData(filterData()));
+                statusFilter.addEventListener('change', () => dataTable.setData(filterData()));
+
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<div style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</div>';
+            }
+        });
+    </script>
 </body>
 </html>
