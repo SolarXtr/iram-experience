@@ -56,48 +56,92 @@
                 </div>
             </div>
 
-            <div class="dashboard-grid" id="researchers-grid">
-                <div style="text-align:center; padding:40px; grid-column:1/-1;">Loading researchers...</div>
+            <div class="card" id="researchers-table-container">
+                <div style="text-align:center; padding:40px;">Loading researchers...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script src="assets/js/datatable.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
-            const grid = document.getElementById('researchers-grid');
+            const container = document.getElementById('researchers-table-container');
+            const searchInput = document.querySelector('input[type="text"].form-control');
+            const deptFilter = document.querySelector('select.form-control');
+            
             try {
                 const researchers = await window.api.researchers.getAll();
                 
                 if (researchers.length === 0) {
-                    grid.innerHTML = '<div style="text-align:center; padding:40px; grid-column:1/-1;">No researchers found</div>';
+                    container.innerHTML = '<div style="text-align:center; padding:40px;">No researchers found</div>';
                     return;
                 }
+                
+                // Add default status and format numbers
+                const processed = researchers.map(res => ({
+                    ...res,
+                    displayStatus: res.status || 'Active',
+                    projectsCount: res.projects_count || 0,
+                    publicationsCount: res.publications_count || 0,
+                    department: res.department || 'Researcher'
+                }));
 
-                grid.innerHTML = ''; // clear loading
-                researchers.forEach(res => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <div class="card-body" style="text-align:center;">
-                            <div style="width:80px; height:80px; background:#e0e0e0; border-radius:50%; margin:0 auto 16px auto; display:flex; align-items:center; justify-content:center; font-size:24px; color:#555;">
-                                ${res.name.charAt(0)}
-                            </div>
-                            <h3 class="card-title" style="margin-bottom:4px;">${res.name}</h3>
-                            <p class="text-muted">${res.department || 'Researcher'}</p>
-                            <div style="margin-top:16px; display:flex; justify-content:space-around;">
-                                <div><strong>${res.projects_count || 0}</strong><br><small>Projects</small></div>
-                                <div><strong>${res.publications_count || 0}</strong><br><small>Publications</small></div>
-                                <div><span style="color:${res.status === 'Active' ? 'green' : (res.status === 'Resigned' ? 'orange' : 'gray')}; font-weight:bold;">${res.status || 'Active'}</span></div>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
+                // Populate Department Filter dynamically
+                const depts = [...new Set(processed.map(r => r.department))].sort();
+                deptFilter.innerHTML = '<option value="ALL">All Departments</option>';
+                depts.forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.textContent = d;
+                    deptFilter.appendChild(opt);
                 });
+
+                const columns = [
+                    { key: 'name', label: 'Name' },
+                    { key: 'department', label: 'Department' },
+                    { key: 'projectsCount', label: 'Projects' },
+                    { key: 'publicationsCount', label: 'Publications' },
+                    { 
+                        key: 'displayStatus', 
+                        label: 'Status',
+                        render: (val) => {
+                            let color = val === 'Active' ? 'green' : (val === 'Resigned' ? 'orange' : 'gray');
+                            return `<span style="color:${color}; font-weight:bold;">${val}</span>`;
+                        }
+                    }
+                ];
+
+                const filterData = () => {
+                    const searchVal = searchInput.value.toLowerCase();
+                    const deptVal = deptFilter.value;
+                    
+                    return processed.filter(res => {
+                        const matchesSearch = !searchVal || 
+                            (res.name || '').toLowerCase().includes(searchVal) ||
+                            (res.scopusId || '').toLowerCase().includes(searchVal);
+                            
+                        const matchesDept = deptVal === 'ALL' || res.department === deptVal;
+                        
+                        return matchesSearch && matchesDept;
+                    });
+                };
+
+                const dataTable = new InteractiveTable('researchers-table-container', {
+                    columns,
+                    data: filterData(),
+                    pageSize: 25,
+                    defaultSort: 'name',
+                    defaultSortAsc: true
+                });
+                
+                searchInput.addEventListener('input', () => dataTable.setData(filterData()));
+                deptFilter.addEventListener('change', () => dataTable.setData(filterData()));
+
             } catch (err) {
                 console.error(err);
-                grid.innerHTML = '<div style="text-align:center; padding:40px; grid-column:1/-1; color:red;">Failed to load data. Ensure backend is running.</div>';
+                container.innerHTML = '<div style="text-align:center; padding:40px; color:red;">Failed to load data. Ensure backend is running.</div>';
             }
         });
     </script>

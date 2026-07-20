@@ -57,66 +57,135 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Title</th>
-                                <th>Authors</th>
-                                <th>Journal</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="publications-table-body">
-                            <tr><td colspan="5" style="text-align:center; padding:20px;">Loading publications...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card" id="publications-table-container">
+                <!-- Datatable will be rendered here -->
+                <div style="text-align:center; padding:20px;">Loading publications...</div>
             </div>
         </main>
     </div>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/components.js"></script>
+    <script src="assets/js/datatable.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
-            const tableBody = document.getElementById('publications-table-body');
+            const container = document.getElementById('publications-table-container');
+            const yearFilter = document.querySelector('select.form-control');
+            const searchInput = document.querySelector('input[type="text"].form-control');
+            
             try {
-                const publications = await window.api.publications.getAll();
-                
-                if (publications.length === 0) {
-                    tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px;">No publications found</td></tr>';
+                const rawPublications = await window.api.publications.getAll();
+                if (rawPublications.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; padding:20px;">No publications found</div>';
                     return;
                 }
 
-                tableBody.innerHTML = ''; // clear loading
-                publications.forEach(pub => {
-                    const tr = document.createElement('tr');
-                    
-                    // Parse authors (assuming JSON string from DB)
+                // Process data
+                const processedData = rawPublications.map(pub => {
                     let authorsStr = 'Unknown';
                     try {
                         const authorsArr = JSON.parse(pub.authors);
                         authorsStr = authorsArr.map(a => a.name).join(', ');
                     } catch(e) {}
 
-                    // Get year from pub.year or fallback to createdAt
-                    const year = pub.year || (pub.createdAt ? new Date(pub.createdAt).getFullYear() : 'N/A');
+                    let displayDate = pub.year || (pub.coverDate ? pub.coverDate.substring(0,4) : null) || (pub.createdAt ? new Date(pub.createdAt).getFullYear().toString() : 'N/A');
+                    
+                    let badgeColor = '#17a2b8';
+                    let displayStatus = pub.status || 'Published';
+                    if (pub.status === 'ARTICLE_IN_PRESS') {
+                        badgeColor = '#f39c12';
+                        displayStatus = 'Ahead of print';
+                    }
 
-                    tr.innerHTML = `
-                        <td>${year}</td>
-                        <td>${pub.title || 'Untitled'}</td>
-                        <td>${authorsStr}</td>
-                        <td>${pub.journal || 'Unknown Journal'}</td>
-                        <td><span class="badge" style="background:#17a2b8; color:white; padding:4px 8px; border-radius:4px;">${pub.status || 'Published'}</span></td>
-                    `;
-                    tableBody.appendChild(tr);
+                    return {
+                        ...pub,
+                        displayDate,
+                        authorsStr,
+                        displayStatus,
+                        badgeColor
+                    };
                 });
+
+                // Extract unique years
+                const uniqueYears = [...new Set(processedData.map(p => p.displayDate).filter(y => y !== 'N/A'))].sort().reverse();
+                
+                // Populate Year filter
+                yearFilter.innerHTML = `
+                    <option value="LAST_5">Last 5 Years</option>
+                    <option value="LAST_3">Last 3 Years</option>
+                    <option value="LAST_10">Last 10 Years</option>
+                    <option value="ALL">All Years</option>
+                    <option disabled>──────────</option>
+                `;
+                uniqueYears.forEach(y => {
+                    const opt = document.createElement('option');
+                    opt.value = y;
+                    opt.textContent = y;
+                    yearFilter.appendChild(opt);
+                });
+
+                // Setup Table
+                const columns = [
+                    { key: 'displayDate', label: 'Year' },
+                    { key: 'title', label: 'Title', render: (val) => val || 'Untitled' },
+                    { key: 'authorsStr', label: 'Authors' },
+                    { key: 'journal', label: 'Journal', render: (val) => val || 'Unknown Journal' },
+                    { 
+                        key: 'displayStatus', 
+                        label: 'Status',
+                        render: (val, row) => `<span class="badge" style="background:${row.badgeColor}; color:white; padding:4px 8px; border-radius:4px; font-size:0.85em; white-space:nowrap;">${val}</span>`
+                    }
+                ];
+
+                const currentYear = new Date().getFullYear();
+                
+                const filterData = () => {
+                    const searchVal = searchInput.value.toLowerCase();
+                    const yearVal = yearFilter.value;
+                    
+                    return processedData.filter(pub => {
+                        // Search Match
+                        const matchesSearch = !searchVal || 
+                            (pub.title || '').toLowerCase().includes(searchVal) ||
+                            (pub.authorsStr || '').toLowerCase().includes(searchVal) ||
+                            (pub.journal || '').toLowerCase().includes(searchVal);
+                            
+                        if (!matchesSearch) return false;
+                        
+                        // Year Match
+                        if (yearVal === 'ALL') return true;
+                        
+                        const pubYear = parseInt(pub.displayDate);
+                        if (isNaN(pubYear)) return false; // Hide N/A if year filter active
+                        
+                        if (yearVal === 'LAST_5') return pubYear >= currentYear - 4; // e.g. 2026 -> 2022-2026
+                        if (yearVal === 'LAST_3') return pubYear >= currentYear - 2;
+                        if (yearVal === 'LAST_10') return pubYear >= currentYear - 9;
+                        
+                        return pub.displayDate === yearVal;
+                    });
+                };
+
+                const dataTable = new InteractiveTable('publications-table-container', {
+                    columns,
+                    data: filterData(),
+                    pageSize: 25,
+                    defaultSort: 'displayDate',
+                    defaultSortAsc: false
+                });
+                
+                // Bind events
+                yearFilter.addEventListener('change', () => {
+                    dataTable.setData(filterData());
+                });
+                
+                searchInput.addEventListener('input', () => {
+                    dataTable.setData(filterData());
+                });
+
             } catch (err) {
                 console.error(err);
-                tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</td></tr>';
+                container.innerHTML = '<div style="text-align:center; padding:20px; color:red;">Failed to load data. Ensure backend is running.</div>';
             }
         });
     </script>
