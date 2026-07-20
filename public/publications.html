@@ -102,8 +102,8 @@
                         authorsStr = authorsArr.map(a => a.name).join(', ');
                     } catch(e) {}
 
-                    // Get year from createdAt or default
-                    const year = pub.createdAt ? new Date(pub.createdAt).getFullYear() : 'N/A';
+                    // Get year from pub.year or fallback to createdAt
+                    const year = pub.year || (pub.createdAt ? new Date(pub.createdAt).getFullYear() : 'N/A');
 
                     tr.innerHTML = `
                         <td>${year}</td>

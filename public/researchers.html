@@ -87,9 +87,9 @@
                             <h3 class="card-title" style="margin-bottom:4px;">${res.name}</h3>
                             <p class="text-muted">${res.department || 'Researcher'}</p>
                             <div style="margin-top:16px; display:flex; justify-content:space-around;">
-                                <div><strong>-</strong><br><small>Projects</small></div>
-                                <div><strong>-</strong><br><small>Publications</small></div>
-                                <div><span style="color:green; font-weight:bold;">${res.status || 'Active'}</span></div>
+                                <div><strong>${res.projects_count || 0}</strong><br><small>Projects</small></div>
+                                <div><strong>${res.publications_count || 0}</strong><br><small>Publications</small></div>
+                                <div><span style="color:${res.status === 'Active' ? 'green' : (res.status === 'Resigned' ? 'orange' : 'gray')}; font-weight:bold;">${res.status || 'Active'}</span></div>
                             </div>
                         </div>
                     `;

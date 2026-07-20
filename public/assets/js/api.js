@@ -9,7 +9,7 @@
 const CONFIG = {
     API_BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
         ? 'http://localhost:8787' 
-        : 'https://api.your-production-url.com' // TODO: Update with real production URL later
+        : 'https://iram-backend.tinnakornh.workers.dev'
 };
 
 /**
