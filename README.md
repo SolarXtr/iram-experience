@@ -74,12 +74,10 @@ The complete architecture is documented in:
 | 08-Roadmap                 | Future roadmap          |
 | 09-PROJECT-STATUS          | Current project status  |
 | 10-Brand                   | Brand identity          |
-| 11-Contributing            | Contribution guidelines |
 | 12-Glossary                | Common terminology      |
 | 13-Manifesto               | Project philosophy      |
 | 14-Decisions               | Architectural decisions |
 | 15-Future-Ideas            | Innovation backlog      |
-| 16-Release-Notes           | Version history         |
 | 17-The-iRAM-Chronicle      | Project chronicle       |
 | 18-Documentation-Standards | Documentation standards |
 | 19-Naming-Conventions      | Naming standards        |

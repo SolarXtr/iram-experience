@@ -119,12 +119,10 @@ Recommended reading order
 | ID | Document           |
 | -- | ------------------ |
 | 10 | Brand              |
-| 11 | Contributing       |
 | 12 | Glossary           |
 | 13 | Manifesto          |
 | 14 | Decisions          |
 | 15 | Future Ideas       |
-| 16 | Release Notes      |
 | 17 | The iRAM Chronicle |
 
 ---
@@ -153,10 +151,10 @@ Recommended reading order
 | Category               |            Count |
 | ---------------------- | ---------------: |
 | Foundation             |               10 |
-| Governance & Knowledge |                8 |
+| Governance & Knowledge |                6 |
 | Standards              |                3 |
 | Executive              |                2 |
-| **Total**              | **23 Documents** |
+| **Total**              | **21 Documents** |
 
 ---
 
