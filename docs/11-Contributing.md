@@ -1,1 +1,5 @@
-# Contributing
+Deprecated
+
+Merged into:
+
+CONTRIBUTING.md
